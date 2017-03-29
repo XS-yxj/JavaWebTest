@@ -1,0 +1,143 @@
+/*导航栏*/
+input{
+	border-radius: 2px;
+}
+
+[alt=logo]{
+	position:relative; 
+	right: 4px;
+	top: 3px;
+}
+
+ul.topMenu{
+	list-style-type:none;
+	overflow:hidden;
+	background-color:white;
+	/*border:solid #C9C9C9;
+	border-width:0px 0px 1px;*/
+	padding: 0px 0px 0px 115px;
+	margin:0px;
+	max-height: 40px;
+}
+
+ul.topMenu li{
+	text-align: center;
+	display: inline-block;
+	float: left;
+	min-width: 60px;
+	padding: 10px 0px;
+	margin:0px;
+}
+
+ul.topMenu a{
+	text-decoration:none;
+	color:#8E8E8E;
+}
+
+ul.topMenu a:hover{
+	color:rgb(29,161,242);
+}
+
+div.dropdown-content{
+	display:none;
+	position:absolute;
+	min-width: 60px;
+	background-color:white;
+}
+
+div.dropdown:hover .dropdown-content{
+	display: block;
+}
+
+div.dropdown-content a{
+	display:block;
+	padding:6px 4px;
+}
+
+select.location{
+	position: absolute;
+	right:100px;
+	color:#8E8E8E;
+	width:60px; 
+}
+
+div.show{
+	margin: 70px 160px;
+}
+
+div.show-text{
+	font: 18px bold;
+	text-shadow: 5px 5px 5px #282828;
+	color: white;
+}
+
+
+
+
+
+
+/*提交表单*/
+form.sign{
+	margin: 0px;
+	display: inline-block;
+	position: absolute;
+	right: 285px;
+	background-color:white;
+	border-radius: 2px;
+}
+
+form p{
+	text-align: center;
+}
+
+form .getPassword{
+	font-size: 12px;
+	text-decoration: none;
+	color: #8E8E8E;
+	margin: 0px 60px 0px 50px;
+}
+
+form .checkbox{
+	position: relative;
+	top: 3px;
+}
+
+form label{
+	font-size: 14px;
+	text-decoration: none;
+}
+
+
+input:not(.checkbox){
+	margin: 2px 10px;
+	border: 1px solid rgb(205,215,220);
+	border-radius: 3px;
+	width: 260px;
+	height: 30px;
+	padding-left: 10px;		//内填边距（placeholder等）
+}
+
+input.submit {
+	width: 270px;
+}
+
+input#clock{
+	/*display: inline-block;*/
+	border:none;
+	font-weight: bold;
+	color: green;
+	background: white;
+	width:50px;
+	position: absolute;
+	right: 20px;
+	top:-1px;
+}
+
+
+
+
+/*背景*/
+body{
+	background-image:url(res/background02.jpg);
+	margin:0px;
+}
