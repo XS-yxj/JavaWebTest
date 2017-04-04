@@ -38,8 +38,8 @@
 //    表单提交，防止中文乱码
     request.setCharacterEncoding("utf-8");
 %>
-<jsp:useBean id="userInfo" class="com.userInfo.User" ></jsp:useBean>
-<jsp:useBean id="checkUser" class="com.userInfo.CheckUser" ></jsp:useBean>
+<jsp:useBean id="userInfo" class="com.entity.User" ></jsp:useBean>
+<%--<jsp:useBean id="checkUser" class="com.entity.CheckUser" ></jsp:useBean>--%>
 <%--根据表单自动匹配--%>
 <jsp:setProperty name="userInfo" property="*" />
 
@@ -105,16 +105,16 @@
 
 //    ---------------封装义务逻辑---------------
 
-    if(checkUser.chackUser(userInfo)) {
-//        使用session保持登录状态
-        session.setAttribute("username", userInfo.getUsername());
-
-//        请求转发，服务器内部跳转
-        request.getRequestDispatcher("user/signIn_success.jsp").forward(request,response);
-    } else {
-//        重定向，客户端二次请求
-        response.sendRedirect("user/signIn_failure.jsp");
-    }
+//    if(checkUser.chackUser(userInfo)) {
+////        使用session保持登录状态
+//        session.setAttribute("username", userInfo.getUsername());
+//
+////        请求转发，服务器内部跳转
+//        request.getRequestDispatcher("user/signIn_success.jsp").forward(request,response);
+//    } else {
+////        重定向，客户端二次请求
+//        response.sendRedirect("user/signIn_failure.jsp");
+//    }
 
 
 

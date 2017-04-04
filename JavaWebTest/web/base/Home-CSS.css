@@ -138,6 +138,6 @@ input#clock{
 
 /*背景*/
 body{
-	background-image:url(res/background02.jpg);
+	background-image:url(../res/background02.jpg);
 	margin:0px;
 }

@@ -8,11 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>登录成功</title>
 </head>
 <body>
-<h3>欢迎您 <font color="green"><%=session.getAttribute("username") %></font> ，登陆成功。。。</h3>
-<%--<jsp:useBean id="userInfo" class="com.userInfo.User" scope="session"/>--%>
-<%--<h3>欢迎您 <font color="green"><jsp:getProperty name="userInfo" property="username"/></font> ，登陆成功。。。</h3>--%>
+<%--EA表达式--%>
+<h3>欢迎您 <font color="green">${username}</font> ，登陆成功。。。</h3>
 </body>
 </html>
