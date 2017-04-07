@@ -123,7 +123,9 @@ input.submit {
 
 img.imageCheckCode {
 	position: relative;
-	top: 8px;
+	top: 11px;
+	width:75px;
+	height: 30px;
 }
 
 input.checkCode {

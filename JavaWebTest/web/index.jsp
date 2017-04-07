@@ -160,7 +160,8 @@
     <tr>
       <td>
         <p id="warn2"></p>
-        <img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />
+        <%--<img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />--%>
+        <img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="randomcode.jpg" />
         <input type="text"  name="checkCode" class="checkCode"/>
         <a href="javascript:reloadCode();">看不清</a>
       </td>

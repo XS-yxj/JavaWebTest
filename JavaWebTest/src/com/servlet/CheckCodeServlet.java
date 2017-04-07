@@ -13,8 +13,9 @@ import java.util.Random;
 
 /**
  * Created by Apple on 2017/4/6.
+ * 完全自定义的验证码Servlet实现，不推荐
  */
-@WebServlet(name = "CheckCodeServlet", urlPatterns = "/com/servlet/CheckCodeServlet")
+//@WebServlet(name = "CheckCodeServlet", urlPatterns = "/com/servlet/CheckCodeServlet")
 public class CheckCodeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

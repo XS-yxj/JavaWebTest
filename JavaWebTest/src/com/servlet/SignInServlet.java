@@ -2,6 +2,7 @@ package com.servlet;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.util.CheckCodeUtil;
+import com.util.KaptchaUtil;
 import com.util.SignInUtil;
 
 import javax.servlet.ServletException;
@@ -69,8 +70,8 @@ public class SignInServlet extends HttpServlet {
 //        验证用户
 
         Boolean isLegalUser = SignInUtil.checkUser(username, password);
-        Boolean isCheckCode = CheckCodeUtil.checkCode(request);
-
+//        Boolean isCheckCode = CheckCodeUtil.checkCode(request);
+        Boolean isCheckCode = KaptchaUtil.checkCode(request);
 
         if (isCheckCode) {
 

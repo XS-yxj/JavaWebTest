@@ -34,14 +34,17 @@ function signUp() {
 }
 
 function reloadCode() {
-
-	var time = new Date().getTime();
-	document.getElementById("imageCheckCode").src="com/servlet/CheckCodeServlet?d="+time;
+    //自定义，添加时间确保刷新
+    var time = new Date().getTime();
+    document.getElementById("imageCheckCode").src="randomcode.jpg?d="+time;
+    // document.getElementById("imageCheckCode").src="com/servlet/CheckCodeServlet?d="+time;
     //------------"<%"会有转换？？？？？------------------------
     // document.getElementById("imageCheckCode").src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet?d="+time;
 }
 
-
+function reloadCode() {
+    document.getElementById("imageCheckCode").src="randomcode.jpg";
+}
 
 
 
