@@ -121,6 +121,16 @@ input.submit {
 	width: 270px;
 }
 
+img.imageCheckCode {
+	position: relative;
+	top: 8px;
+}
+
+input.checkCode {
+	width: 80px;
+	height: 20px;
+}
+
 input#clock{
 	/*display: inline-block;*/
 	border:none;
@@ -133,7 +143,9 @@ input#clock{
 	top:-1px;
 }
 
-
+td {
+	text-align: center;
+}
 
 
 /*背景*/

@@ -33,6 +33,15 @@ function signUp() {
     document.getElementsByName("signInForm")[0].style.display = "none";
 }
 
+function reloadCode() {
+
+	var time = new Date().getTime();
+	document.getElementById("imageCheckCode").src="com/servlet/CheckCodeServlet?d="+time;
+    //------------"<%"会有转换？？？？？------------------------
+    // document.getElementById("imageCheckCode").src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet?d="+time;
+}
+
+
 
 
 

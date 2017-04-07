@@ -1,11 +1,14 @@
 package com.servlet;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import com.util.CheckCodeUtil;
 import com.util.SignInUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URLEncoder;
 
 /**
@@ -65,19 +68,47 @@ public class SignInServlet extends HttpServlet {
 
 //        验证用户
 
-        Boolean isLegalUser = SignInUtil.chackUser(username, password);
+        Boolean isLegalUser = SignInUtil.checkUser(username, password);
+        Boolean isCheckCode = CheckCodeUtil.checkCode(request);
 
-        if(isLegalUser) {
 
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            response.sendRedirect(request.getContextPath() + "/user/signIn_success.jsp");
+        if (isCheckCode) {
+
+            if(isLegalUser) {
+
+                HttpSession session = request.getSession();
+                session.setAttribute("username", username);
+                response.sendRedirect(request.getContextPath() + "/user/signIn_success.jsp");
+
+            }else {
+
+                response.sendRedirect(request.getContextPath() + "/user/signIn_failure.jsp");
+
+            }
 
         }else {
 
-            response.sendRedirect(request.getContextPath() + "/user/signIn_failure.jsp");
+            PrintWriter out = response.getWriter();
+            out.print("验证码错误");
 
         }
+
+
+
+
+
+
+//        if(isLegalUser && isCheckCode) {
+//
+//            HttpSession session = request.getSession();
+//            session.setAttribute("username", username);
+//            response.sendRedirect(request.getContextPath() + "/user/signIn_success.jsp");
+//
+//        }else {
+//
+//            response.sendRedirect(request.getContextPath() + "/user/signIn_failure.jsp");
+//
+//        }
 
 
     }

@@ -1,17 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: Apple
-  Date: 2017/3/26
-  Time: 22:39
+  Date: 2017/4/5
+  Time: 21:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-    <title>登录成功</title>
+    <title></title>
 </head>
 <body>
-<%--EL表达式--%>
-<h3>欢迎您 <font color="green">${username}</font> ，登陆成功。。。</h3>
+<c:out value="JSPL Demo"></c:out>
 </body>
 </html>

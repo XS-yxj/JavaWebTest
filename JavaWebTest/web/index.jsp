@@ -20,7 +20,7 @@
   <!--chrome具有缓存，外部js文件修改后浏览器不能及时更新-->
   <!--1.可以设置版本号，src="javascript.js?version=10"，？v=Math.random（）-->
   <!--2.Shift+F5，强制刷新-->
-  <script type="text/javascript" src="base/javascript.js"></script>
+  <script type="text/javascript" src="base/javascript.js" charset="utf-8"></script>
 </head>
 <body id="background">
 <!-- 导航栏 -->
@@ -93,7 +93,10 @@
     </tr>
     <tr>
       <td>
-        <p class="warn"></p>
+        <%--<p class="warn"></p>--%>
+        <%--<img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />--%>
+        <%--<input type="text"  name="checkCode" class="checkCode"/>--%>
+        <%--<a href="javascript:reloadCode();">看不清</a>--%>
       </td>
     </tr>
     <tr>
@@ -107,8 +110,6 @@
 
 
 <%
-//    表单提交，防止中文乱码
-//  request.setCharacterEncoding("utf-8");
 
   String username = "";
   String password = "";
@@ -158,7 +159,10 @@
     </tr>
     <tr>
       <td>
-        <p class="warn"></p>
+        <p id="warn2"></p>
+        <img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />
+        <input type="text"  name="checkCode" class="checkCode"/>
+        <a href="javascript:reloadCode();">看不清</a>
       </td>
     </tr>
     <tr>

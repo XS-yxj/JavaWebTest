@@ -12,7 +12,7 @@ public class SignInUtil {
     static String defaultUsernameZH = "孤世";
 
 
-    public static Boolean chackUser(String username, String password) {
+    public static Boolean checkUser(String username, String password) {
 
         if((username.equals(defaultUsername) || username.equals(defaultUsernameZH))
                 && password.equals(defaultPassword)) {
