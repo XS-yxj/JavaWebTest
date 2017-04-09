@@ -79,8 +79,6 @@ function callback() {
 	if(xmlHttp.readyState==4 && xmlHttp.status==200) {
 		//交互成功，响应数据为文本格式
 		var result = xmlHttp.responseText;
-		//解析获取数据
-		// var json = eval("("+result+")");
 		if(result==="true") {
             e.style="display:img; width: 20px; height: 20px;";
             e.alt="T";
