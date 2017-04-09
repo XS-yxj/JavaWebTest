@@ -159,10 +159,12 @@
     </tr>
     <tr>
       <td>
-        <p id="warn2"></p>
+        <%--使用完全自定义的验证码--%>
         <%--<img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />--%>
-        <img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="randomcode.jpg" />
-        <input type="text"  name="checkCode" class="checkCode"/>
+        <%--借助Kaptcha--%>
+        <img alt="验证码" title="验证码" id="imageCheckCode" src="randomcode.jpg" />
+        <input type="text"  name="checkCode"  id="checkCode" onkeyup="tryAjax()"/>
+        <img src="#" id="isTrue" style="display: none;">
         <a href="javascript:reloadCode();">看不清</a>
       </td>
     </tr>

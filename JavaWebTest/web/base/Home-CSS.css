@@ -10,6 +10,10 @@ input{
 }
 
 ul.topMenu{
+	position: fixed;
+	top:0;
+	left: 0;
+	width:100%;
 	list-style-type:none;
 	overflow:hidden;
 	background-color:white;
@@ -121,14 +125,14 @@ input.submit {
 	width: 270px;
 }
 
-img.imageCheckCode {
+img#imageCheckCode {
 	position: relative;
 	top: 11px;
 	width:75px;
 	height: 30px;
 }
 
-input.checkCode {
+input#checkCode {
 	width: 80px;
 	height: 20px;
 }

@@ -7,13 +7,13 @@
 
 
     <!--1. 设置超时时间（分钟），并非标准时间（约）。-->
-<!--2. 计时开始于最后一次点击，并非关闭浏览器。-->
-<!--3. 0为不限时；Tomcat默认30分钟-->
+    <!--2. 计时开始于最后一次点击，并非关闭浏览器。-->
+    <!--3. 0为不限时；Tomcat默认30分钟-->
     <session-config>
         <session-timeout>5</session-timeout>
     </session-config>
 
-<!--指定error处理页面-->
+    <!--指定error处理页面-->
     <error-page>
         <error-code>404</error-code>
         <location>/error/isError.html</location>
@@ -82,12 +82,12 @@
 
 
 
-<!-- ********************过滤器链根据注册顺序进行排序******************* -->
+    <!-- ********************过滤器链根据注册顺序进行排序******************* -->
 
     <!--[1]error过滤器,该过滤器可以捕捉错误（需要放行）-->
     <filter>
-    <filter-name>ErrorFilter</filter-name>
-    <filter-class>com.filter.ErrorFilter</filter-class>
+        <filter-name>ErrorFilter</filter-name>
+        <filter-class>com.filter.ErrorFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>ErrorFilter</filter-name>
@@ -115,20 +115,20 @@
 
     <!--[3]非法请求过滤，避免非登录用户访问不合理的页面-->
     <!--<filter>-->
-        <!--<filter-name>IllegalRequestFilter</filter-name>-->
-        <!--<filter-class>com.filter.IllegalRequestFilter</filter-class>-->
-        <!--<init-param>-->
-            <!--<param-name>DefaultEncoding</param-name>-->
-            <!--<param-value>utf-8</param-value>-->
-        <!--</init-param>-->
-        <!--<init-param>-->
-            <!--<param-name>noUrlPatterns</param-name>-->
-            <!--<param-value>error;base;res;index.jsp;signIn_failure.jsp;SignInServlet;CheckCodeServlet</param-value>-->
-        <!--</init-param>-->
+    <!--<filter-name>IllegalRequestFilter</filter-name>-->
+    <!--<filter-class>com.filter.IllegalRequestFilter</filter-class>-->
+    <!--<init-param>-->
+    <!--<param-name>DefaultEncoding</param-name>-->
+    <!--<param-value>utf-8</param-value>-->
+    <!--</init-param>-->
+    <!--<init-param>-->
+    <!--<param-name>noUrlPatterns</param-name>-->
+    <!--<param-value>error;base;res;index.jsp;signIn_failure.jsp;SignInServlet;CheckCodeServlet</param-value>-->
+    <!--</init-param>-->
     <!--</filter>-->
     <!--<filter-mapping>-->
-        <!--<filter-name>IllegalRequestFilter</filter-name>-->
-        <!--<url-pattern>/*</url-pattern>-->
+    <!--<filter-name>IllegalRequestFilter</filter-name>-->
+    <!--<url-pattern>/*</url-pattern>-->
     <!--</filter-mapping>-->
 
 

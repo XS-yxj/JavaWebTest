@@ -26,4 +26,21 @@ public class KaptchaUtil {
         return false;
     }
 
+
+    static public Boolean ajaxCheckCode (HttpServletRequest request) {
+
+        String piccode = (String) request.getSession()
+                .getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+        String checkcode = request.getParameter("ajaxCheckCode");
+
+
+        System.out.println(piccode+"---"+checkcode);
+
+
+        if (checkcode.equals(piccode)) {
+            return true;
+        }
+        return false;
+    }
+
 }
