@@ -1,7 +1,6 @@
 
 // 改变背景图片
 function  changeBackground(num){
-	// alert("8979");
 	switch(num){
 
 		case 1: document.getElementById("background").style.background="url(res/background01.jpg)"; break;
@@ -9,15 +8,6 @@ function  changeBackground(num){
 		case 3: document.getElementById("background").style.background="url(res/background03.jpg)"; break;
 	}
 
-	 // var image{"url(res/background01.jpg)","url(res/background02.jpg)","url(res/background03.jpg)"}
-
-	 // if(1<=num<3)
-	 // {
-	 // 	document.getElementById("background").style.background=image[i];
-	 // }
-
-
-	// document.getElementById("background").style.background="url(res/background01.jpg)";
 }
 
 
@@ -40,8 +30,15 @@ function signUp() {
 //     // document.getElementById("imageCheckCode").src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet?d="+time;
 // }
 
+
+//处理验证码“看不清”
 function reloadCode() {
-    document.getElementById("imageCheckCode").src="randomcode.jpg";
+    //请求新验证码
+    document.getElementById("imageCheckCode").src = "randomcode.jpg";
+    //输入框置空
+    document.getElementById("checkCode").value = "";
+    //隐藏实时验证码图片
+    document.getElementById("isTrue").style = "display:none;";
 }
 
 var xmlHttp;
@@ -62,7 +59,7 @@ function tryAjax() {
 	xmlHttp.send();
 
 }
-
+//获取XMLHttp对象，解决兼容性
 function createXMLHttp() {
 	var xmlHttp;
 	if(window.XMLHttpRequest) {
@@ -73,7 +70,7 @@ function createXMLHttp() {
 	}
 	return xmlHttp;
 }
-
+//接受服务器响应和改变前端内容
 function callback() {
     var e = document.getElementById("isTrue");
 	if(xmlHttp.readyState==4 && xmlHttp.status==200) {

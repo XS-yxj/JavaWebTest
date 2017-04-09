@@ -7,9 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="java.net.*" %>
-<%@ page import="jdk.nashorn.api.scripting.URLReader" %>
 <!DOCTYPE html>
-<!-- <html lang="en"> -->
 <head>
   <meta charset="UTF-8">
   <title>Home实例</title>

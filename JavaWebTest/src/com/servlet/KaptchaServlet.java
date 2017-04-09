@@ -70,7 +70,7 @@ public class KaptchaServlet extends HttpServlet implements Servlet {
         String s2 = capText.substring(1,2);
         int r = Integer.valueOf(s1).intValue()+Integer.valueOf(s2).intValue();
         req.getSession().setAttribute(this.sessionKeyValue, String.valueOf(r));     //结果保存于session
-        req.getSession().setAttribute(this.sessionKeyDateValue, new Date());    //加时间确保刷新
+        req.getSession().setAttribute(this.sessionKeyDateValue, new Date());    //添加时间确保刷新
         BufferedImage bi = this.kaptchaProducer.createImage(s1 + "+" + s2 +"=?");
 //---------------------------------------------------------------------------
 
