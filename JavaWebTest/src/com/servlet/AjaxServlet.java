@@ -1,6 +1,5 @@
 package com.servlet;
 
-import com.util.CheckCodeUtil;
 import com.util.KaptchaUtil;
 
 import javax.servlet.ServletException;

@@ -22,13 +22,11 @@ function  changeBackground(num){
 
 
 function signIn() {
-    // alert("11");
     document.getElementsByName("signInForm")[0].style.display = "inline-block";
     document.getElementsByName("signUpForm")[0].style.display = "none";
 }
 
 function signUp() {
-    // alert("11");
     document.getElementsByName("signUpForm")[0].style.display = "inline-block";
     document.getElementsByName("signInForm")[0].style.display = "none";
 }

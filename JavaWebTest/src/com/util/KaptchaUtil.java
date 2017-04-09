@@ -1,7 +1,5 @@
 package com.util;
 
-import com.google.code.kaptcha.Constants;
-
 import javax.servlet.http.HttpServletRequest;
 
 /**
