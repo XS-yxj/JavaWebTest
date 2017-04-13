@@ -12,13 +12,14 @@ function  changeBackground(num){
 
 
 function signIn() {
-    document.getElementsByName("signInForm")[0].style.display = "inline-block";
-    document.getElementsByName("signUpForm")[0].style.display = "none";
+    document.getElementById("signIn-form").style.display = "inline-block";
+    document.getElementById("signUp-form").style.display = "none";
 }
 
 function signUp() {
-    document.getElementsByName("signUpForm")[0].style.display = "inline-block";
-    document.getElementsByName("signInForm")[0].style.display = "none";
+    document.getElementById("signUp-form").style.display = "inline-block";
+    document.getElementById("signIn-form").style.display = "none";
+
 }
 
 // function reloadCode() {
@@ -38,7 +39,7 @@ function reloadCode() {
     //输入框置空
     document.getElementById("checkCode").value = "";
     //隐藏实时验证码图片
-    document.getElementById("isTrue").style = "display:none;";
+    document.getElementById("isTrue").style.opacity = "0";
 }
 
 var xmlHttp;
@@ -77,11 +78,11 @@ function callback() {
 		//交互成功，响应数据为文本格式
 		var result = xmlHttp.responseText;
 		if(result==="true") {
-            e.style="display:img; width: 20px; height: 20px;";
+            e.style="opacity: 1;";
             e.alt="T";
             e.src="res/isTrue.png"
         }else {
-            e.style="display:img; width: 20px; height: 20px;";
+            e.style="opacity: 1;";
             e.alt="F";
             e.src="res/isFalse.png"
         }
@@ -100,7 +101,11 @@ function clock(){
 	var time = new Date();
 
 	strClock = time.getHours() +":"+ time.getMinutes() +":"+ time.getSeconds();
+
+
+
 	document.getElementById("clock").value = strClock;
+	// alert();
 }
 setInterval(clock,1000);
 

@@ -1,76 +1,70 @@
-/*导航栏选中效果*/
-div.hover-transition{
-	position: relative;
-	top: 9px;
-	height: 2px;
-	background: rgb(29,161,242);
-	-webkit-transition: height 0.2s;	/*垂直方向  时间*/
-}
+/*!*!*导航栏选中效果*!*!*/
+/*div.hover-transition{*/
+	/*position: relative;*/
+	/*top: 9px;*/
+	/*height: 2px;*/
+	/*background: rgb(29,161,242);*/
+	/*-webkit-transition: height 0.2s;	!*垂直方向  时间*!*/
+/*}*/
 
-ul.topMenu a:hover+div.hover-transition{
-	position: relative;
-	top: 4px;
-	width:auto;
-	height:5px;
-	/*-webkit-transition: rotate(180deg);*/
-}
-
-
-
-/*ul.topMenu a:hover+div.hover-animation{
-	position: relative;
-	width:auto;
-	background: rgb(29,161,242);
-	-webkit-animation: myfirst 2s;
-}
-
-@-webkit-keyframes myfirst{
-	form{
-		top: 8px;
-		height: 2px;
-	}
-	to{
-		top: 5px;
-		height:5px;
-	}
-	
-}*/
+/*ul.topMenu a:hover+div.hover-transition{*/
+	/*position: relative;*/
+	/*top: 4px;*/
+	/*width:auto;*/
+	/*height:5px;*/
+	/*!*-webkit-transition: rotate(180deg);*!*/
+/*}*/
 
 
-/*导航栏----登录按钮*/
-ul.topMenu button.sign{
-	font-weight: normal;
+
+/*!*ul.topMenu a:hover+div.hover-animation{*/
+	/*position: relative;*/
+	/*width:auto;*/
+	/*background: rgb(29,161,242);*/
+	/*-webkit-animation: myfirst 2s;*/
+/*}*/
+
+/*@-webkit-keyframes myfirst{*/
+	/*form{*/
+		/*top: 8px;*/
+		/*height: 2px;*/
+	/*}*/
+	/*to{*/
+		/*top: 5px;*/
+		/*height:5px;*/
+	/*}*/
+
+/*}*!*/
+
+
+/*--------------导航栏.登录按钮-----------*/
+div#header button{
 	padding: 2px 8px;
-	border: 1px solid rgb(76,175,80);
+	border:1px solid rgb(76,175,80);
 	background-color:rgb(76,175,80);
 	color:white;
-	transition-duration: 0.4s;
 	cursor: pointer;
 	border-radius: 3px;
+	transition-duration: 0.4s;
 }
 
-ul.topMenu button.sign:hover{
+div#header button:hover{
 	font-weight: bold;
 	background-color:white;
 	color:rgb(76,175,80);
 }
 
 
-/*表单按钮*/
+/*----------------表单按钮---------------*/
 [type=submit]{
-	display: block;
-	font-weight: normal;
-	padding: 2px 8px;
 	border: 1px solid rgb(76,175,80);
 	background-color:rgb(76,175,80);
 	color:white;
-	transition-duration: 0.4s;
+	/*height: 35px;*/
+	margin: 5px auto;
 	cursor: pointer;
 	border-radius: 3px;
-	height: 30px;
-	width: 270px;
-	margin: 20px 10px 10px;
-
+	transition-duration: 0.4s;
 }
 
 [type=submit]:hover{
@@ -81,8 +75,19 @@ ul.topMenu button.sign:hover{
 
 
 
-/*改变背景图片按钮*/
-ul.show-image{
+
+
+
+
+
+
+
+
+
+
+
+/*!*改变背景图片按钮*!*/
+div#changeGBI{
 	position: absolute;
 	right: 0px;
 	bottom: 0px;
@@ -91,13 +96,13 @@ ul.show-image{
 	cursor: pointer;
 }
 
-ul.show-image li{
+div#changeGBI li{
 	float: left;
 	font-size: 18px;
 	margin: 4px;
 }
 
-ul.show-image li a.previous{
+div#changeGBI li a#previous{
 	color:white;
 	padding: 4px 4px 4px 0px;
 	text-decoration: none;
@@ -109,7 +114,7 @@ ul.show-image li a.previous{
 	background-image:url(res/background01.jpg)
 }*/
 
-ul.show-image li a.active{
+div#changeGBI li a#active{
 	color:white;
 	padding: 5px 12px;
 	text-decoration: none;
@@ -119,7 +124,7 @@ ul.show-image li a.active{
 	opacity: 0.4;
 }
 
-ul.show-image li a.next{
+div#changeGBI li a#next{
 	color:white;
 	padding: 4px 0px 4px 4px;
 	text-decoration: none;
@@ -127,7 +132,7 @@ ul.show-image li a.next{
 	opacity: 0.4;
 }
 
-ul.show-image li a:hover{
+div#changeGBI li a:hover{
 	background-color: rgb(29,161,242);
 	opacity: 1;
 }
