@@ -20,6 +20,9 @@ window.onload = function () {
 
 }
 
+
+
+//------------移动动画----------------------
 //定时器变量
 var timerM = null;
 function startMove(iTarget){
@@ -30,12 +33,10 @@ function startMove(iTarget){
 
     timerM = setInterval(function () {
 
-        var speed = 0;
-        if(onDiv.offsetLeft > iTarget){
-            speed = -10;
-        }else {
-            speed = 10;
-        }
+        var speed = (iTarget-onDiv.offsetLeft)/5;
+
+        //解决浏览器忽略像素小数问题（无法正常复位）,向前向后取整
+        speed = speed >0 ? Math.ceil(speed):Math.floor(speed);
 
         if(onDiv.offsetLeft == iTarget){
             clearInterval(timerM);
@@ -47,7 +48,7 @@ function startMove(iTarget){
 }
 
 
-
+//---------------透明度渐变动画----------------------
 var timerC= null;
 var alpha = 0.6;
 function startChange(iOpacity){
@@ -58,12 +59,7 @@ function startChange(iOpacity){
 
     timerC = setInterval(function () {
 
-        var speed = 0;
-        if(alpha > iOpacity){
-            speed = -0.001;
-        }else {
-            speed = 0.001;
-        }
+        var speed = (iOpacity-alpha)/50;
 
         if(onDiv.offsetLeft == iOpacity){
             clearInterval(timerC);

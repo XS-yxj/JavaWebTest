@@ -13,8 +13,8 @@ div#menu-top h3{
 div#menu-top{
     position: fixed;
     width: 100%;
-    height: 25px;
-
+    height: 40px;
+    border-bottom: 1px solid white;
     background-color: rgb(29,161,242);
     color: white;
 }
@@ -24,7 +24,7 @@ div#menu-top{
 /*左侧菜单栏*/
 div#menu-left{
     position: fixed;
-    top:25px;
+    top:40px;
     left: -200px;
     /*width: 15%;*/
     width:205px;
@@ -35,6 +35,29 @@ div#menu-left{
     /*transition-duration: 0.8s;*/
 
 }
+
+
+a{
+    display:block;
+    background-color: white;
+    text-align:center;
+    color:#8E8E8E;
+    margin: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*!*---可行---*!*/
 /*div#menu-left:hover{*/
