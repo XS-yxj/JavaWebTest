@@ -107,6 +107,7 @@ function clock(){
 	document.getElementById("clock").value = strClock;
 	// alert();
 }
+//定时器
 setInterval(clock,1000);
 
 

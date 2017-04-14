@@ -61,7 +61,7 @@ div#header button:hover{
 	background-color:rgb(76,175,80);
 	color:white;
 	/*height: 35px;*/
-	margin: 5px auto;
+	margin: 0px auto;
 	cursor: pointer;
 	border-radius: 3px;
 	transition-duration: 0.4s;

@@ -26,7 +26,7 @@
 
 
 
-<!-- 导航栏 -->
+<!-- **************************导航栏************************** -->
 <div id="header">
   <ul id="topMenu">
     <li id="home">
@@ -42,7 +42,7 @@
       <button id="signIn" onclick="signIn()">登录</button>
     </li>
     <li>
-      <button onclick="signUp()">注册</button>
+      <button id="signUp" onclick="signUp()">注册</button>
     </li>
     <li>
       <form action="">
@@ -59,8 +59,35 @@
 </div>
 
 
+<%
+
+    String username = "";
+    String password = "";
+    Cookie[] cookies = request.getCookies();
+    if(cookies != null && cookies.length > 0) {
+
+        for (Cookie c: cookies) {
+
+            if (c.getName().equals("username")) {
+
+//          使用匹配的utf-8解码, 防止Cookie中文乱码
+                username = URLDecoder.decode(c.getValue(), "utf-8");
+                System.out.print(username);
+
+            }
+            if (c.getName().equals("password")) {
+
+                password = URLDecoder.decode(c.getValue(), "utf-8");
+
+            }
+        }
+
+    }
+
+%>
 
 
+<%--************************内容栏*****************************--%>
 <div id="content" >
 
   <!-- 网页信息 -->
@@ -68,7 +95,7 @@
       <p>世界那么大，我想去看看。</p>
   </div>
 
-        <!-- 注册表单 -->
+    <!-- 注册表单 -->
     <div id="signUp-form">
         <form action="#signUp" method="post" class="sign" name="signUpForm">
             <h4 class="sign">欢迎注册</h4>
@@ -80,39 +107,7 @@
         </form>
     </div>
 
-
-
-
-  <%
-
-    String username = "";
-    String password = "";
-    Cookie[] cookies = request.getCookies();
-    if(cookies != null && cookies.length > 0) {
-
-      for (Cookie c: cookies) {
-
-        if (c.getName().equals("username")) {
-
-//          使用匹配的utf-8解码, 防止Cookie中文乱码
-          username = URLDecoder.decode(c.getValue(), "utf-8");
-          System.out.print(username);
-
-        }
-        if (c.getName().equals("password")) {
-
-          password = URLDecoder.decode(c.getValue(), "utf-8");
-
-        }
-      }
-
-    }
-
-  %>
-
-
-
-
+    <%--登录表单--%>
     <div  id="signIn-form">
       <form action="<%=request.getContextPath() %>/com/servlet/SignInServlet" method="post" class="sign" name="signInForm">
         <h4 class="sign">欢迎登录</h4>
@@ -123,41 +118,33 @@
             <input type="password" name="password" placeholder="密码" value="<%=password%>" />
         </div>
         <div class="sfg-1">
-            <div class="sf">
+            <div>
                 <a  id="getPassword" href="#">忘记密码</a>
             </div>
-            <div class="sf">
-                <input  id="remInput" name="isUseCookie" type="checkbox"/>
+            <div>
+                <input  id="remInput" name="isUseCookie" type="checkbox" checked/>
             </div>
-            <div class="sf">
-               <label id="remLaber" for="remInput">记住密码</label>
+            <div>
+               <label id="remLaber" for="remInput" >记住密码</label>
             </div>
         </div>
         <div class="sfg-2">
-            <div class="sf" >
+            <div>
               <%--使用完全自定义的验证码--%>
               <%--<img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />--%>
               <%--借助Kaptcha自定义加法验证码--%>
                   <a href="javascript:reloadCode();"><img id="imageCheckCode" alt="验证码" title="验证码"  src="randomcode.jpg" /></a>
             </div>
-            <%--<div class="sf">--%>
-                <%--<a href="javascript:reloadCode();" id="changeCheckCode">看不清</a>--%>
-            <%--</div>--%>
-            <div class="sf">
+            <div>
                <img id="isTrue"  src="res/isFalse.png"  >
             </div>
-            <div class="sf">
+            <div>
                 <input type="text"  name="checkCode"  id="checkCode" onkeyup="tryAjax()"/>
             </div>
         </div>
-        <div><input class="submit" type="submit" value="登录"></div>
+        <div><input type="submit" value="登录"></div>
       </form>
     </div>
-
-
-
-
-
 
 </div>
 
@@ -175,7 +162,7 @@
 
 
 
-
+<%--*******************页尾**************************--%>
 <%--<%@ include file="base/footer.jsp"%>--%>
 </body>
 </html>
