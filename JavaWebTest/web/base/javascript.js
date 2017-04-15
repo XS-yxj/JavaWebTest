@@ -3,22 +3,22 @@
 function  changeBackground(num){
 	switch(num){
 
-		case 1: document.getElementById("background").style.background="url(res/background01.jpg)"; break;
-		case 2: document.getElementById("background").style.background="url(res/background02.jpg)"; break;
-		case 3: document.getElementById("background").style.background="url(res/background03.jpg)"; break;
+		case 1: document.getElementById("background").style.background="url(res/background01.jpg)";break;
+		case 2: document.getElementById("background").style.background="url(res/background02.jpg)";break;
+		case 3: document.getElementById("background").style.background="url(res/background03.jpg)";break;
 	}
 
 }
 
 
 function signIn() {
-    document.getElementById("signIn-form").style.display = "inline-block";
-    document.getElementById("signUp-form").style.display = "none";
+    document.getElementById("signIn-div").style.display = "inline-block";
+    document.getElementById("signUp-div").style.display = "none";
 }
 
 function signUp() {
-    document.getElementById("signUp-form").style.display = "inline-block";
-    document.getElementById("signIn-form").style.display = "none";
+    document.getElementById("signUp-div").style.display = "inline-block";
+    document.getElementById("signIn-div").style.display = "none";
 
 }
 
@@ -95,21 +95,31 @@ function callback() {
 
 
 
-// 时钟
-var strClock;
-function clock(){
-	var time = new Date();
-
-	strClock = time.getHours() +":"+ time.getMinutes() +":"+ time.getSeconds();
 
 
-
-	document.getElementById("clock").value = strClock;
-	// alert();
+window.onload = function (){
+    // 时钟
+	showtime();
 }
-//定时器
-setInterval(clock,1000);
 
 
+function showtime(){
+    var myDate = new Date();
+    var h = myDate.getHours();
+    var m = checkTime(myDate.getMinutes());
+    var s = checkTime(myDate.getSeconds());
+
+    var strClock = h + ':' + m + ':' + s;
+
+    document.getElementById("clock").value = strClock;
+
+    //每隔500毫秒执行showtime一次
+    setTimeout(showtime,500);
+}
+
+//格式控制
+function checkTime(i){
+    return i>9 ? i : '0'+i;
+}
 
 

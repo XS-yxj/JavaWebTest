@@ -29,14 +29,14 @@
 <!-- **************************导航栏************************** -->
 <div id="header">
   <ul id="topMenu">
-    <li id="home">
-      <a href="#home" ><img src="res/favicon.png" alt="logo" >首页</a>
+    <li>
+      <a href="#home" ><img src="res/favicon.png" alt="logo"/>首页</a><span></span>
     </li>
     <li>
-        <a href="#more" class="more">导航</a>
+        <a href="#more" class="more">导航</a><span></span>
     </li>
     <li>
-      <a href="#about">关于</a>
+      <a href="#about">关于</a><span></span>
     </li>
     <li>
       <button id="signIn" onclick="signIn()">登录</button>
@@ -96,7 +96,7 @@
   </div>
 
     <!-- 注册表单 -->
-    <div id="signUp-form">
+    <div id="signUp-div">
         <form action="#signUp" method="post" class="sign" name="signUpForm">
             <h4 class="sign">欢迎注册</h4>
             <div><input type="text" placeholder="用户名"></div>
@@ -108,7 +108,7 @@
     </div>
 
     <%--登录表单--%>
-    <div  id="signIn-form">
+    <div  id="signIn-div">
       <form action="<%=request.getContextPath() %>/com/servlet/SignInServlet" method="post" class="sign" name="signInForm">
         <h4 class="sign">欢迎登录</h4>
         <div>

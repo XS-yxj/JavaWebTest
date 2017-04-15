@@ -11,11 +11,16 @@
 <html>
 <head>
     <title>在线用户数据</title>
-    <meta http-equiv="refresh" content="3">
+    <%--<meta http-equiv="refresh" content="60*60">--%>
+    <link rel="stylesheet" href="base/usersNumber-css.css">
+    <link rel="shortcut icon" href="<%=request.getContextPath()%>/res/favicon.png" type="image/x-icon"/>
+    <%--<script type="text/javascript" src="base/usersNumber-js.js"></script>--%>
 </head>
+
 <body>
 
 <div style="text-align: center">
+    <div id="nowDate"></div>
     <h1>显示当前在线用户人数</h1><hr>
 
     <%--*********EL+JSPL*********--%>
@@ -33,8 +38,46 @@
     SessionId：<c:out value="${user.sessionId}"></c:out>&nbsp;&nbsp;<br>
     </c:forEach>
 
+</div>
+
+<br><br><br><br>
+
+<div id="scrollBox1">
+
+    <ul id="con1">
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background01.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background02.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background03.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background04.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background05.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background06.jpg" alt="" width="100%" height="100%"></a></li>
+    </ul>
+    <ul id="con2"></ul>
+
 
 </div>
 
+
+<div id="scrollBox2">
+
+    <ul id="con01">
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background01.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background02.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background03.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background04.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background05.jpg" alt="" width="100%" height="100%"></a></li>
+        <li><a href="#"><img src="<%=request.getContextPath()%>/res/background06.jpg" alt="" width="100%" height="100%"></a></li>
+    </ul>
+    <ul id="con02"></ul>
+
+
+</div>
+
+
+
+
+
 </body>
+<%--未知问题，只有放在此处动画ScrollTop有效--%>
+<script type="text/javascript" src="base/usersNumber-js.js"></script>
 </html>

@@ -12,15 +12,9 @@ a{ text-decoration:none;}
 /*---------------a统一样式-----------------*/
 a{
 	display:block;
-	/*background-color: rgb(210,210,210);*/
 	text-align:center;
 	color:#8E8E8E;
 }
-
-a:hover{
-	color:rgb(29,161,242);
-}
-
 
 
 /*--------------------水平菜单-------------------*/
@@ -28,28 +22,44 @@ div#header ul{
 	width:85%;
 	/*margin: 0px auto;*/
     margin-left: 10%;
-    margin-right: 5%;
+    margin-right: 10%;
 	max-height: 45px;
+/*清除浮动*/
+    overflow:hidden;
 }
 
 div#header li{
+    /*position: relative;*/
 	float:left;
-	margin:12px 2px 8px;
+	margin:12px 4px 4px;
+    /*background-color: chartreuse;*/
 }
 
+
+
+
+
+
+
+/*---------网站主标签------*/
 div#header a{
 	width:68px;
 }
 
-li#home{
+#topMenu>li:first-child a{
+    /*logo参照系*/
     position: relative;
+    text-indent: 17px;
+    /*padding-left: 18px;*/
 }
 [alt=logo]{
     position: absolute;
-    left: -3px;
+    left: 5px;
     top: 1px;
-    height: 22px;
 }
+
+
+
 
 
 div#header #signIn{
@@ -60,10 +70,7 @@ div#header #signUp{
 }
 
 
-/*清除浮动*/
-div#header ul{
-	overflow:hidden;
-}
+
 
 div#header {
     background-color: white;
@@ -100,7 +107,7 @@ div#content{
 
 /*-----提交表单-----*/
 
-div#signIn-form, div#signUp-form{
+div#signIn-div, div#signUp-div{
     background-color: white;
     border:1px solid rgb(205,215,220);
     width:300px;
@@ -111,6 +118,7 @@ div#signIn-form, div#signUp-form{
     top:170px;
     right: 10px;
     display: none;
+    /*transition-duration: 1s;*/
 }
 
 /*统一样式*/
@@ -166,7 +174,7 @@ div#content input#checkCode{
 
 }
 
-img#isTrue {
+img#isTrue{
     opacity: 0;
     margin-left:10px;
     margin-right: 40px;
@@ -240,5 +248,7 @@ div#changeGBI li{
 
 /*背景*/
 body{
+    transition-duration: 2s;
 	background-image:url(../res/background02.jpg);
+
 }
