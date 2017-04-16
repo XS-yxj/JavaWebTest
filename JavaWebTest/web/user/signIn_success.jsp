@@ -12,6 +12,9 @@
 </head>
 <body>
 <%--EL表达式--%>
-<h3>欢迎您 <font color="green">${username}</font> ，登陆成功。。。</h3>
+<h3>欢迎您 <font color="green">${username}</font> ，登陆成功。。。3秒后跳转</h3>
+<%
+    response.setHeader("refresh","3;../newWorld/seeWorld.jsp");
+%>
 </body>
 </html>

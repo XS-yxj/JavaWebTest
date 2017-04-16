@@ -9,8 +9,6 @@ window.onload = function (){
     showtime();
 
 
-
-
     move1();
     move2();
 

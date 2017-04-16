@@ -1,20 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.entity.User" %><%--
-  Created by IntelliJ IDEA.
-  User: Apple
-  Date: 2017/3/31
-  Time: 16:22
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>在线用户数据</title>
-    <%--<meta http-equiv="refresh" content="60*60">--%>
+    <meta http-equiv="refresh" content="60*60">
     <link rel="stylesheet" href="base/usersNumber-css.css">
     <link rel="shortcut icon" href="<%=request.getContextPath()%>/res/favicon.png" type="image/x-icon"/>
-    <%--<script type="text/javascript" src="base/usersNumber-js.js"></script>--%>
+    <script type="text/javascript" src="base/usersNumber-js.js"></script>
 </head>
 
 <body>

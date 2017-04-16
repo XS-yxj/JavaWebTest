@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Apple on 2017/3/31.
+ * 已知bug：自动调用浏览器会创建2个sessionId。
  */
 @WebListener
 public class UsersNumberListener implements HttpSessionListener{

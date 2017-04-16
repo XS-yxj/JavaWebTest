@@ -17,7 +17,9 @@
 
 <div id="header">
     <div  onclick="moveMenu()">
-        <div id="point"></div>
+        <div id="point">
+            <img src="../res/favicon.png">
+        </div>
         <div id="net" >newWord</div>
     </div>
 
@@ -73,9 +75,6 @@
 </div>
 
 
-<%--<div id="footer">--%>
-    <%--<div>页尾</div>--%>
-<%--</div>--%>
 
 
 

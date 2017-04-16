@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.net.*" %>
 <!DOCTYPE html>
 <head>
@@ -72,19 +73,20 @@
 
 //          使用匹配的utf-8解码, 防止Cookie中文乱码
                 username = URLDecoder.decode(c.getValue(), "utf-8");
-                System.out.print(username);
 
             }
             if (c.getName().equals("password")) {
 
                 password = URLDecoder.decode(c.getValue(), "utf-8");
-
             }
         }
 
     }
 
 %>
+
+
+
 
 
 <%--************************内容栏*****************************--%>
@@ -130,9 +132,6 @@
         </div>
         <div class="sfg-2">
             <div>
-              <%--使用完全自定义的验证码--%>
-              <%--<img alt="验证码" title="验证码" class="imageCheckCode" id="imageCheckCode" src="<%=request.getContextPath() %>/com/servlet/CheckCodeServlet" />--%>
-              <%--借助Kaptcha自定义加法验证码--%>
                   <a href="javascript:reloadCode();"><img id="imageCheckCode" alt="验证码" title="验证码"  src="randomcode.jpg" /></a>
             </div>
             <div>

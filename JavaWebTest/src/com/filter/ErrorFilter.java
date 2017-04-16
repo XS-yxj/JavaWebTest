@@ -20,18 +20,19 @@ public class ErrorFilter implements Filter{
     public void init(FilterConfig filterConfig) throws ServletException {
 
     }
+
     //    核心方法，完成过滤器的实际操作
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
         System.out.println("--------检查到错误信息---------");
-//        Boolean isError = true;
-//        servletRequest.getServletContext().setAttribute("isError", isError);
+
 
 //        放行
         filterChain.doFilter(servletRequest, servletResponse);
-//        servletRequest.getRequestDispatcher("/error/isError.html").forward(servletRequest,servletResponse);
+
     }
+
     //    较少使用，释放过滤器占用资源
     @Override
     public void destroy() {

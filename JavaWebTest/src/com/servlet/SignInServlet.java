@@ -1,7 +1,5 @@
 package com.servlet;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import com.util.CheckCodeUtil;
 import com.util.KaptchaUtil;
 import com.util.SignInUtil;
 
@@ -25,45 +23,52 @@ public class SignInServlet extends HttpServlet {
 
 
 ////        设置Cookie
-//        String[] isUseCookies = request.getParameterValues("isUseCookie");
-//        if(isUseCookies != null && isUseCookies.length > 0) {
-//
-////        使用编码URLEncode，防止Cookie中文乱码
-//            String usernameStr = URLEncoder.encode(username, "utf-8");
-//            String passwordStr = URLEncoder.encode(password, "utf-8");
-//
-//
-////        将用户名和密码保存到Cookie中
-//            Cookie usernameCookie = new Cookie("username", usernameStr);
-//            Cookie passwordCookie = new Cookie("password", passwordStr);
-//
-//            //        最大生存期限为七天
-//            usernameCookie.setMaxAge(60*60*24*7);
-//            passwordCookie.setMaxAge(60*60*24*7);
-//
-//            response.addCookie(usernameCookie);
-//            response.addCookie(passwordCookie);
-//            System.out.println(username);
-//
-//        }else {
-////        不记住密码且Cookie中有内容
-//            System.out.println("nono");
-//            Cookie[] cookies = request.getCookies();
-//            if(cookies != null && cookies.length > 0) {
-//
-//                for (Cookie c: cookies) {
-//
-//                    if (c.getName().equals("username") || c.getName().equals("password")) {
-//                        //      设置Cookie失效并重新保存！！！！
-//                        System.out.println(c.getValue());
-//                        c.setMaxAge(0);
-//                        response.addCookie(c);
-//                    }
-//
-//                }
-//
-//            }
-//        }
+        String[] isUseCookies = request.getParameterValues("isUseCookie");
+        if(isUseCookies != null && isUseCookies.length > 0) {
+
+//        使用编码URLEncode，防止Cookie中文乱码
+            String usernameStr = URLEncoder.encode(username, "utf-8");
+            String passwordStr = URLEncoder.encode(password, "utf-8");
+
+
+//        将用户名和密码保存到Cookie中
+            Cookie usernameCookie = new Cookie("username", usernameStr);
+            Cookie passwordCookie = new Cookie("password", passwordStr);
+
+            //        最大生存期限为七天
+            usernameCookie.setMaxAge(60*60*24*7);
+            passwordCookie.setMaxAge(60*60*24*7);
+//      !!!!!!!需要设置适用路径
+            usernameCookie.setPath(request.getContextPath());
+            passwordCookie.setPath(request.getContextPath());
+
+            response.addCookie(usernameCookie);
+            response.addCookie(passwordCookie);
+
+
+        }else {
+//        不记住密码且Cookie中有内容
+            Cookie[] cookies = request.getCookies();
+            if(cookies != null && cookies.length > 0) {
+
+                for (Cookie c: cookies) {
+
+                    if (c.getName().equals("username") || c.getName().equals("password")) {
+                        //      设置Cookie失效并重新保存！！！！
+                        c.setMaxAge(0);
+//                !!!!!!!需要设置适用路径
+                        c.setPath(request.getContextPath());
+                        response.addCookie(c);
+                    }
+
+                }
+
+            }
+        }
+
+
+
+
 
 
 
@@ -98,7 +103,7 @@ public class SignInServlet extends HttpServlet {
 
 
 
-
+//          -------signIn.jsp---------
 //        if(isLegalUser && isCheckCode) {
 //
 //            HttpSession session = request.getSession();

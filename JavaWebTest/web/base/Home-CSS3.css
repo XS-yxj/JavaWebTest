@@ -90,9 +90,7 @@ div#changeGBI li a#previous{
 	opacity: 0.4;
 }
 
-/*ul.show-image li a.previous:hover+body{
-	background-image:url(res/background01.jpg)
-}*/
+
 
 div#changeGBI li a#active{
 	color:white;

@@ -1,9 +1,10 @@
+/*-----------统一样式------------*/
+
 *{
     margin:0px;
     padding:0px;
-}
+
 /*---------------调试-------------*/
-*{
     /*border: 1px solid #8E8E8E;*/
 }
 
@@ -12,10 +13,6 @@ a{
 }
 
 
-body{
-    /*overflow: hidden;*/
-    /*position: relative;*/
-}
 
 
 /*-----------------------header---------------------------------*/
@@ -31,16 +28,16 @@ body{
     z-index: 10;
     transition-duration: 0.8s;
 }
-
+/*logo*/
 #header #point{
     float: left;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-color: white;
-    margin: 10px 5px 10px 20px;
+    margin: 10px 0px 10px 30px;
     cursor: pointer;
 }
-
+/*网站名*/
 #header #net{
     float: left;
     font-size: 18px;
@@ -52,16 +49,8 @@ body{
 
 
 #content{
-    /*position: relative;*/
-    /*overflow: hidden;*/
     height: 100%;
-    /*background-color: chartreuse;*/
 }
-
-#content #div{
-
-}
-
 
 /*---------------左侧导航栏---------------*/
 #leftMenu{
@@ -70,7 +59,6 @@ body{
     /*left:0px;*/
     left: -200px;
     float: left;
-    /*width: 10px;*/
     width:200px;
     height: 100%;
     background-color: white;
@@ -122,7 +110,7 @@ body{
 
 
 
-/*--------------------------------------------*/
+/*-----------------------用户动态框---------------------*/
 #message{
     position: relative;
     /* 必须设定才能正常过渡*/
@@ -137,16 +125,11 @@ body{
 }
 
 #aMessage{
-    /*overflow: hidden;*/
     width: 60%;
-    /*min-height: 200px;*/
     background-color: #8E8E8E;
     margin: 50px 20%;
 }
 
-#aMessage div{
-    /*float: left;*/
-}
 
 
 #m-user{
@@ -155,33 +138,27 @@ body{
     color: white;
     width: 20%;
     min-height: 200px;
-    /*height: 100%;*/
 }
 
 #m-content{
     float: right;
     background-color: darkgreen;
     color: white;
-    /*margin: 10px 10%;*/
     width: 80%;
     min-height: 200px;
 }
 
 #m-time{
-    /*clear: both;*/
     background-color: gold;
     color: darkgreen;
-    /*width: 100%;*/
-
 }
 
 #m-discuss{
     background-color: cyan;
     color: darkgreen;
-    /*width: 100%;*/
 }
 
-
+/*-----------------右下角悬浮工具-----------------------*/
 #util{
     position: fixed;
     bottom: 25px;

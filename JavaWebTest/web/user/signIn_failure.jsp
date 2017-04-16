@@ -11,6 +11,9 @@
     <title>登陆失败</title>
 </head>
 <body>
-<h1>登录失败正在返回。。。</h1>
+<h1>登录失败正在返回。。。3秒后跳转</h1>
+<%
+    response.setHeader("refresh","3;index.jsp");
+%>
 </body>
 </html>

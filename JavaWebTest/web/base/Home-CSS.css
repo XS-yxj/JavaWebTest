@@ -2,7 +2,6 @@
 *{ margin:0px;  padding:0px;}
 ul{ list-style:none;}
 a{ text-decoration:none;}
-/*button{border:none;}*/
 /*---------------调试-------------*/
 *{
     /*border: 1px solid #8E8E8E;*/
@@ -20,7 +19,6 @@ a{
 /*--------------------水平菜单-------------------*/
 div#header ul{
 	width:85%;
-	/*margin: 0px auto;*/
     margin-left: 10%;
     margin-right: 10%;
 	max-height: 45px;
@@ -29,10 +27,8 @@ div#header ul{
 }
 
 div#header li{
-    /*position: relative;*/
 	float:left;
 	margin:12px 4px 4px;
-    /*background-color: chartreuse;*/
 }
 
 
@@ -50,7 +46,6 @@ div#header a{
     /*logo参照系*/
     position: relative;
     text-indent: 17px;
-    /*padding-left: 18px;*/
 }
 [alt=logo]{
     position: absolute;
@@ -92,16 +87,11 @@ div#header {
 
 /*-------------------内容页----------------------*/
 div#content{
+    position: relative;
     height: 620px;
     width:900px;
     margin: 0px auto;
-    /*background: white;*/
-    /*opacity: 0.1;*/
-
-    /*调试*/
-    /*border:10px solid green;*/
     overflow: hidden;
-    position: relative;
 }
 
 
@@ -226,18 +216,6 @@ div#changeGBI{
 div#changeGBI li{
     float: left;
 }
-
-
-
-
-
-/*#home:hover{*/
-    /*border-bottom: 10px solid blue;*/
-/*}*/
-
-
-
-
 
 
 

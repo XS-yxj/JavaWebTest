@@ -26,10 +26,6 @@ public class IllegalRequestFilter implements Filter {
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws ServletException, IOException {
 
 
-//        boolean isError = (boolean) req.getServletContext().getAttribute("isError");
-//        if (isError) {
-//            chain.doFilter(req,resp);
-//        }
 
 //      利用filter进行全局request编码转换
         String DefaultEncoding = filterConfig.getInitParameter("DefaultEncoding");
