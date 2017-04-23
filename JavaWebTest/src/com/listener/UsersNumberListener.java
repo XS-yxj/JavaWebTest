@@ -20,7 +20,7 @@ public class UsersNumberListener implements HttpSessionListener{
 
 
     public void sessionCreated(HttpSessionEvent se) {
-      /* Session is created. */
+
 
         usersNumber++;
         se.getSession().getServletContext().setAttribute("usersNumber",usersNumber);
@@ -31,7 +31,7 @@ public class UsersNumberListener implements HttpSessionListener{
     }
 
     public void sessionDestroyed(HttpSessionEvent se) {
-      /* Session is destroyed. */
+
         usersNumber--;
         se.getSession().getServletContext().setAttribute("usersNumber",usersNumber);
 

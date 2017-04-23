@@ -1,5 +1,6 @@
 package com.servlet;
 
+import com.util.CookieUtil;
 import com.util.KaptchaUtil;
 import com.util.SignInUtil;
 
@@ -22,68 +23,21 @@ public class SignInServlet extends HttpServlet {
         String password = request.getParameter("password");
 
 
-////        设置Cookie
-        String[] isUseCookies = request.getParameterValues("isUseCookie");
-        if(isUseCookies != null && isUseCookies.length > 0) {
-
-//        使用编码URLEncode，防止Cookie中文乱码
-            String usernameStr = URLEncoder.encode(username, "utf-8");
-            String passwordStr = URLEncoder.encode(password, "utf-8");
-
-
-//        将用户名和密码保存到Cookie中
-            Cookie usernameCookie = new Cookie("username", usernameStr);
-            Cookie passwordCookie = new Cookie("password", passwordStr);
-
-            //        最大生存期限为七天
-            usernameCookie.setMaxAge(60*60*24*7);
-            passwordCookie.setMaxAge(60*60*24*7);
-//      !!!!!!!需要设置适用路径
-            usernameCookie.setPath(request.getContextPath());
-            passwordCookie.setPath(request.getContextPath());
-
-            response.addCookie(usernameCookie);
-            response.addCookie(passwordCookie);
-
-
-        }else {
-//        不记住密码且Cookie中有内容
-            Cookie[] cookies = request.getCookies();
-            if(cookies != null && cookies.length > 0) {
-
-                for (Cookie c: cookies) {
-
-                    if (c.getName().equals("username") || c.getName().equals("password")) {
-                        //      设置Cookie失效并重新保存！！！！
-                        c.setMaxAge(0);
-//                !!!!!!!需要设置适用路径
-                        c.setPath(request.getContextPath());
-                        response.addCookie(c);
-                    }
-
-                }
-
-            }
-        }
-
-
-
-
-
-
 
 //        验证用户
-
         Boolean isLegalUser = SignInUtil.checkUser(username, password);
-//        Boolean isCheckCode = CheckCodeUtil.checkCode(request);
         Boolean isCheckCode = KaptchaUtil.checkCode(request);
 
         if (isCheckCode) {
 
             if(isLegalUser) {
 
+//              删除或保存Cookie
+                CookieUtil.deal(request,response);
+
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
+//                session.setAttribute("password", password);
                 response.sendRedirect(request.getContextPath() + "/user/signIn_success.jsp");
 
             }else {
@@ -101,23 +55,12 @@ public class SignInServlet extends HttpServlet {
 
 
 
-
-
-//          -------signIn.jsp---------
-//        if(isLegalUser && isCheckCode) {
-//
-//            HttpSession session = request.getSession();
-//            session.setAttribute("username", username);
-//            response.sendRedirect(request.getContextPath() + "/user/signIn_success.jsp");
-//
-//        }else {
-//
-//            response.sendRedirect(request.getContextPath() + "/user/signIn_failure.jsp");
-//
-//        }
-
-
     }
+
+
+
+
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 

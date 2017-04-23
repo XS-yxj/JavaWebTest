@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class KaptchaUtil {
 
+//    普通提交时的验证
     static public Boolean checkCode (HttpServletRequest request) {
 
         String piccode = (String) request.getSession()
@@ -24,7 +25,7 @@ public class KaptchaUtil {
         return false;
     }
 
-
+//      利用ajax实时验证
     static public Boolean ajaxCheckCode (HttpServletRequest request) {
 
         String piccode = (String) request.getSession()

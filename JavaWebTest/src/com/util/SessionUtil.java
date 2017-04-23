@@ -5,7 +5,7 @@ import com.entity.User;
 import java.util.ArrayList;
 
 /**
- * Created by Apple on 2017/3/31.
+ * 在用户数组列表中匹配特定用户，并返回
  */
 public class SessionUtil {
 
