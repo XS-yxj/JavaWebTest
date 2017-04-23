@@ -1,0 +1,119 @@
+/*导航栏选中效果*/
+div#header span{
+	display: inline-block;
+	width:100%;
+	height: 1px;
+	background-color: rgb(29,161,242);
+	transition-duration: 0.4s;
+}
+
+div#header li:hover span{
+	height: 10px;
+}
+div#header li:hover a{
+	color:rgb(29,161,242);
+}
+
+
+
+
+/*--------------导航栏.登录按钮-----------*/
+div#header button{
+	padding: 2px 8px;
+	border:1px solid rgb(76,175,80);
+	background-color:rgb(76,175,80);
+	color:white;
+	cursor: pointer;
+	border-radius: 3px;
+	transition-duration: 0.4s;
+}
+
+div#header button:hover{
+	font-weight: bold;
+	background-color:white;
+	color:rgb(76,175,80);
+}
+
+
+/*----------------表单按钮---------------*/
+[type=submit]{
+	border: 1px solid rgb(76,175,80);
+	background-color:rgb(76,175,80);
+	color:white;
+	/*height: 35px;*/
+	margin: 0px auto;
+	cursor: pointer;
+	border-radius: 3px;
+	transition-duration: 0.4s;
+}
+
+[type=submit]:hover{
+	font-weight: bold;
+	background-color:#02A423;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!*改变背景图片按钮*!*/
+div#changeGBI{
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	margin: 8px 6px;
+	list-style-type: none;
+	cursor: pointer;
+}
+
+div#changeGBI li{
+	float: left;
+	font-size: 18px;
+	margin: 4px;
+}
+
+div#changeGBI li a#previous{
+	color:white;
+	padding: 4px 4px 4px 0px;
+	text-decoration: none;
+	border-radius: 5px;
+	opacity: 0.4;
+}
+
+
+
+div#changeGBI li a#active{
+	color:white;
+	padding: 5px 12px;
+	text-decoration: none;
+	background-color: rgb(29,161,242);
+	color: white;
+	border-radius: 100px;
+	opacity: 0.4;
+}
+
+div#changeGBI li a#next{
+	color:white;
+	padding: 4px 0px 4px 4px;
+	text-decoration: none;
+	border-radius: 5px;
+	opacity: 0.4;
+}
+
+div#changeGBI li a:hover{
+	background-color: rgb(29,161,242);
+	opacity: 1;
+}
+
+
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--web-app2.3版本默认将EL关闭，所以替换为2.4版本-->
+<web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+  <display-name>Spring MVC Study</display-name>
+
+  <!--<welcome-file-list>-->
+    <!--<welcome-file>index</welcome-file>-->
+  <!--</welcome-file-list>-->
+
+
+
+
+
+
+  <!--Spring应用上下文，理解层次化的ApplicationContext-->
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/configs/spring/applicationContext*.xml</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+
+
+
+
+
+  <!--DispatcherServlet,Spring MVC的核心-->
+  <servlet>
+    <servlet-name>mvc-dispatcher</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <!--DispatcherServlet对应的应用上下文配置，默认为/WEB-INF/$servlet-name$-servelt.xml    -->
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/configs/spring/mvc-dispatcher-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+<!--mvc-servlet拦截所有的请求-->
+  <servlet-mapping>
+    <servlet-name>mvc-dispatcher</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+
+
+
+<!--<servlet>-->
+    <!--<servlet-name>servletInitializer</servlet-name>-->
+    <!--<servlet-class>org.springframework.web.WebApplicationInitializer</servlet-class>-->
+<!--</servlet>-->
+<!--<servlet-mapping>-->
+    <!--<servlet-name>servletInitializer</servlet-name>-->
+    <!--<url-pattern>/servlet</url-pattern>-->
+<!--</servlet-mapping>-->
+
+
+
+
+
+
+
+  <servlet>
+      <servlet-name>signInServlet</servlet-name>
+      <servlet-class>com.servlet.SignInServlet</servlet-class>
+  </servlet>
+    <servlet-mapping>
+        <servlet-name>signInServlet</servlet-name>
+        <url-pattern>/servlet/SignInServlet</url-pattern>
+    </servlet-mapping>
+
+
+  <!--注册配置验证码kaptcha组件, 自定义数字相加验证码-->
+  <servlet>
+    <servlet-name>kaptcha</servlet-name>
+    <servlet-class>com.servlet.KaptchaServlet</servlet-class>
+    <init-param>
+      <param-name>kaptcha.border</param-name>
+      <param-value>no</param-value>
+    </init-param>
+    <init-param>
+      <param-name>kaptcha.background.clear.from</param-name>
+      <param-value>green</param-value>
+    </init-param>
+    <init-param>
+      <param-name>kaptcha.background.clear.to</param-name>
+      <param-value>white</param-value>
+    </init-param>
+    <init-param>
+      <description>验证码长度</description>
+      <param-name>kaptcha.textproducer.char.length</param-name>
+      <param-value>2</param-value>
+    </init-param>
+    <init-param>
+      <description>验证码值</description>
+      <param-name>kaptcha.textproducer.char.string</param-name>
+      <param-value>0123456789</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>kaptcha</servlet-name>
+    <url-pattern>/randomcode.jpg</url-pattern>
+  </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ajaxServlet</servlet-name>
+        <servlet-class>com.servlet.AjaxServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ajaxServlet</servlet-name>
+        <url-pattern>/Ajax</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
+
+
+
+
+
+
