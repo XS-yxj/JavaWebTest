@@ -1,14 +1,29 @@
 
-// 改变背景图片
-function  changeBackground(num){
-	switch(num){
+/**
+ * Created by Apple on 2017/4/15.
+ */
 
-		case 1: document.getElementById("background").style.background="url(resources/image/background01.jpg)";break;
-		case 2: document.getElementById("background").style.background="url(resources/image/background02.jpg)";break;
-		case 3: document.getElementById("background").style.background="url(resources/image/background03.jpg)";break;
-	}
+window.onload=function () {
+
+    // 时钟
+    showtime();
+
+	//	智能显示登陆表单
+    sign();
 
 }
+
+
+function sign() {
+    var url = window.location.href;
+    if(url.indexOf("signIn") >= 0) {
+
+        signIn();
+    }else if(url.indexOf("signUp") >= 0){
+        signUp();
+    }
+}
+
 
 
 function signIn() {
@@ -22,7 +37,16 @@ function signUp() {
 
 }
 
+// 改变背景图片
+function  changeBackground(num){
+    switch(num){
 
+        case 1: document.getElementById("background").style.background="url(resources/image/background01.jpg)";break;
+        case 2: document.getElementById("background").style.background="url(resources/image/background02.jpg)";break;
+        case 3: document.getElementById("background").style.background="url(resources/image/background03.jpg)";break;
+    }
+
+}
 
 
 //处理验证码“看不清”
@@ -90,10 +114,10 @@ function callback() {
 
 
 
-window.onload = function (){
-    // 时钟
-	showtime();
-}
+// window.onload = function (){
+//     // 时钟
+// 	showtime();
+// }
 
 
 function showtime(){

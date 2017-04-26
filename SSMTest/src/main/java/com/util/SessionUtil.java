@@ -1,6 +1,6 @@
 package com.util;
 
-import com.entity.User;
+import com.bean.User;
 
 import java.util.ArrayList;
 

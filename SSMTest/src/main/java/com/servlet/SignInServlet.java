@@ -1,8 +1,8 @@
 package com.servlet;
 
+import com.service.UserService;
 import com.util.CookieUtil;
 import com.util.KaptchaUtil;
-import com.util.SignInUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -12,14 +12,14 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * servlet 3.0 应用（映射匹配）
- */
-//@WebServlet(name = "SignInServlet", urlPatterns = "/com/servlet/SignInServlet")
+
+
 public class SignInServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//        System.out.println("signIn");
+
+        PrintWriter out = response.getWriter();
+
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -27,20 +27,29 @@ public class SignInServlet extends HttpServlet {
 
 
 //        验证用户
-        Boolean isLegalUser = SignInUtil.checkUser(username, password);
+//        Boolean isLegalUser = SignInUtil.checkUser(username, password);
+//      数据库验证用户
+        Boolean isLegalUser = UserService.checkUser(username,password);
+//      检查验证码
         Boolean isCheckCode = KaptchaUtil.checkCode(request);
 
         if (isCheckCode) {
 
-            if(isLegalUser) {
 
-//              删除或保存Cookie
+            if(isLegalUser == null){
+
+
+                out.print("用户不存在");
+
+            }else if (isLegalUser){
+
+
+                //              删除或保存Cookie
                 CookieUtil.deal(request,response);
 
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-//                session.setAttribute("password", password);
-                response.sendRedirect(request.getContextPath()+"/user/signIn_success");
+                response.sendRedirect(request.getContextPath()+"/seeWorld/" + username );
 
             }else {
 
@@ -48,10 +57,31 @@ public class SignInServlet extends HttpServlet {
 
             }
 
-        }else {
 
-            PrintWriter out = response.getWriter();
-            out.print("验证码错误");
+
+
+
+//            if(isLegalUser) {
+//
+////              删除或保存Cookie
+//                CookieUtil.deal(request,response);
+//
+//                HttpSession session = request.getSession();
+//                session.setAttribute("username", username);
+//
+//                response.sendRedirect(request.getContextPath()+"/user/signIn_success");
+//
+//            }else {
+//
+//                response.sendRedirect(request.getContextPath()+"/user/signIn_failure");
+//
+//            }
+//
+//        }else {
+//
+////            PrintWriter out = response.getWriter();
+//            out.print("验证码错误");
+////            System.out.println("验证码错误");
 
         }
 

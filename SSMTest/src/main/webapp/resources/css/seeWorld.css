@@ -17,12 +17,14 @@ a{
 
 /*-----------------------header---------------------------------*/
 #header{
+    overflow: hidden;
     position: fixed;
     top:-45px;
     width: 100%;
-    height: 45px;
-    background-color: rgb(29,161,242);
-    color: white;
+    height: 44px;
+    background-color: white;
+    border-bottom: 1px solid rgb(208,211,213);
+    color: rgb(29,161,242);
     text-align: center;
     font-size: 24px;
     z-index: 10;
@@ -33,15 +35,15 @@ a{
     float: left;
     width: 25px;
     height: 25px;
-    background-color: white;
-    margin: 10px 0px 10px 30px;
+    /*background-color: white;*/
+    margin: 10px 40%;
     cursor: pointer;
 }
 /*网站名*/
 #header #net{
     float: left;
     font-size: 18px;
-    margin: 10px 5px;
+    margin: 10px 50px;
     cursor: pointer;
 }
 
@@ -49,7 +51,9 @@ a{
 
 
 #content{
+    overflow: hidden;
     height: 100%;
+    background-color: rgb(245,248,250);
 }
 
 /*---------------左侧导航栏---------------*/
@@ -60,7 +64,7 @@ a{
     left: -200px;
     float: left;
     width:199px;
-    border-right: 1px solid rgba(29,161,242,0.4);
+    border-right: 1px solid rgb(208,211,213);
     height: 100%;
     background-color: rgb(245,248,250);
 
@@ -77,6 +81,11 @@ a{
 
 #leftMenu li{
     margin: 5px 8px;
+}
+
+#leftMenu img{
+    width: 68px;
+    height: 68px;
 }
 
 

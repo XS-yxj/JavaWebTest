@@ -1,4 +1,4 @@
-package com.entity;
+package com.bean;
 
 /**
  * Created by Apple on 2017/3/27.
@@ -8,6 +8,8 @@ public class User {
     private String username;
     private String password;
     private String email;
+
+    private String userImagePath;
 
     private String sessionId;
     private String ip;
@@ -60,5 +62,13 @@ public class User {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    public String getUserImagePath() {
+        return userImagePath;
+    }
+
+    public void setUserImagePath(String userImagePath) {
+        this.userImagePath = userImagePath;
     }
 }

@@ -13,7 +13,7 @@
 <body>
 <h1>登录失败正在返回。。。3秒后跳转</h1>
 <%
-    response.setHeader("refresh","3;"+request.getContextPath()+"/");
+    response.setHeader("refresh","3;"+request.getContextPath()+"/?signIn");
 %>
 </body>
 </html>

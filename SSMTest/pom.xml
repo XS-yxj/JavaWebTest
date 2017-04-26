@@ -13,7 +13,8 @@
 <!--常用变量（版本管理）-->
   <properties>
     <commons-lang.version>2.6</commons-lang.version>
-    <slf4j.version>1.7.6</slf4j.version>
+    <!--<slf4j.version>1.7.6</slf4j.version>-->
+    <slf4j.version>1.5.8</slf4j.version>
     <spring-version>4.1.3.RELEASE</spring-version>
   </properties>
 
@@ -45,6 +46,7 @@
       <version>${commons-lang.version}</version>
     </dependency>
 
+    <!--支持日志-->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
@@ -56,6 +58,12 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <!--复制一份属性文件到target/classes下-->
+    <dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.16</version>
+  </dependency>
 
 
     <dependency>
@@ -84,6 +92,70 @@
       <groupId>com.github.penggle</groupId>
       <artifactId>kaptcha</artifactId>
       <version>2.3.2</version>
+  </dependency>
+
+    <!-- ibatis.jar 从网络获取，则不需要手动导入ibatis的jar包！-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.2.8</version>
+    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>ognl</groupId>-->
+      <!--<artifactId>ognl</artifactId>-->
+      <!--<version>3.0.6</version>-->
+    <!--</dependency>-->
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.29</version>
+    </dependency>
+
+
+    <!--imooc文件上传文件依赖包-->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+
+<!--tiles-->
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils-core</artifactId>
+      <version>1.8.3</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-digester</groupId>
+      <artifactId>commons-digester</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-api</artifactId>
+      <version>2.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-core</artifactId>
+      <version>2.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-jsp</artifactId>
+      <version>2.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-servlet</artifactId>
+      <version>2.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.tiles</groupId>
+      <artifactId>tiles-template</artifactId>
+      <version>2.2.1</version>
     </dependency>
 
 
@@ -101,7 +173,44 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.2.1.v20140609</version>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
+      </plugin>
+
+      <!--<plugin>-->
+        <!--<groupId>org.apache.tomcat.maven</groupId>-->
+        <!--<artifactId>tomcat7-maven-plugin</artifactId>-->
+        <!--<version>2.1</version>-->
+        <!--<configuration>-->
+          <!--<url>http://localhost:8080/manager/text</url>-->
+          <!--<uriEncoding>UTF-8</uriEncoding>-->
+          <!--<finalName>SSMTest</finalName>-->
+          <!--<server>tomcat7</server>-->
+        <!--</configuration>-->
+      <!--</plugin>-->
+
+
+
+
     </plugins>
+
+
+
+
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
   </build>
 
 

@@ -12,14 +12,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Home实例</title>
-  <link rel="stylesheet" href="resources/index-CSS.css">
-  <link rel="stylesheet" href="resources/index-CSS3.css">
+  <link rel="stylesheet" href="resources/css/index-CSS.css">
+  <link rel="stylesheet" href="resources/css/index-CSS3.css">
   <!-- 网页图标favicon.jpg -->
   <link rel="shortcut icon" href="resources/image/favicon.png" type="image/x-icon"/>
   <!--chrome具有缓存，外部js文件修改后浏览器不能及时更新-->
-  <!--1.可以设置版本号，src="javascript.js?version=10"，？v=Math.random（）-->
+  <!--1.可以设置版本号，src="index.js?version=10"，？v=Math.random（）-->
   <!--2.Shift+F5，强制刷新-->
-  <script type="text/javascript" src="resources/javascript.js" charset="utf-8"></script>
+  <script type="text/javascript" src="resources/js/index.js" charset="utf-8"></script>
 </head>
 <body id="background">
 

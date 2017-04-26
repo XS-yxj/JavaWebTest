@@ -1,19 +1,22 @@
+<%@ taglib prefix="t" uri="http://tiles.apache.org/tags-tiles" %>
 <%--
   Created by IntelliJ IDEA.
   User: Apple
-  Date: 2017/4/15
-  Time: 12:54
+  Date: 2017/4/26
+  Time: 10:57
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${username}</title>
+    <title>Title</title>
     <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/seeWorld.css">
     <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/image/favicon.png" type="image/x-icon"/>
     <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/seeWorld.js"></script>
 </head>
+</head>
 <body>
+
 
 <div id="header">
     <div  onclick="moveMenu()">
@@ -23,12 +26,6 @@
         <img src="<%=request.getContextPath() %>/resources/image/favicon.png">
     </div>
 </div>
-
-
-
-
-
-
 
 
 
@@ -53,31 +50,16 @@
 
     <div id="message">
         <%--<div>信息页面</div>--%>
-
-        <div id="aMessage">
-            <div id="m-time">时间</div>
-            <div id="m-user">用户</div>
-            <div id="m-content">信息</div>
-            <div id="m-discuss">互动</div>
-        </div>
-
+        <t:insertAttribute name="message0" />
     </div>
 
 
 
 
-    <div id="util">
-        <div>new</div>
-    </div>
+
 
 
 
 </div>
-
-
-
-
-
-
 </body>
 </html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <!--<definition name="base" template="/WEB-INF/jsps/page.jsp">-->
+    <!--</definition>-->
+
+
+    <definition name="setting" template="/WEB-INF/jsps/page.jsp">
+        <put-attribute name="message0"
+                        value="/WEB-INF/jsps/setting.jsp" />
+    </definition>
+
+
+</tiles-definitions>
