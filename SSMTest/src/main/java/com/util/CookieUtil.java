@@ -4,12 +4,28 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 
 /**
  * Created by Apple on 2017/4/16.
  */
 public class CookieUtil {
+
+    static public String getCookieValue(HttpServletRequest request, String str) throws UnsupportedEncodingException {
+
+        Cookie[] cookies = request.getCookies();
+        if(cookies != null && cookies.length > 0) {
+            for (Cookie c: cookies) {
+                if (c.getName().equals("username")) {
+//          使用匹配的utf-8解码, 防止Cookie中文乱码
+                    str = URLDecoder.decode(c.getValue(), "utf-8");
+                    return str;
+                }
+            }
+        }
+        return "";
+    }
 
 
 //    --------保存或删除Cookies--------------
@@ -63,7 +79,6 @@ public class CookieUtil {
 
             }
         }
-
 
     }
 

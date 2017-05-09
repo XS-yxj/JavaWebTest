@@ -1,36 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--web-app2.3版本默认将EL关闭，所以替换为2.4版本-->
+<!--web-app2.3版本默认将EL关闭，所以替换为2.4版本以上-->
 <web-app id="WebApp_9" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
-
   <display-name>Spring MVC Study</display-name>
-
-
-
-
-  <!--<welcome-file-list>-->
-    <!--<welcome-file>index</welcome-file>-->
-  <!--</welcome-file-list>-->
-
-
-
 
 
 
   <!--Spring应用上下文，理解层次化的ApplicationContext-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/configs/spring/applicationContext*.xml</param-value>
+    <param-value>classpath:spring/applicationContext.xml</param-value>
   </context-param>
 
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
-
-
-
 
 
   <!--DispatcherServlet,Spring MVC的核心-->
@@ -40,7 +26,7 @@
     <!--DispatcherServlet对应的应用上下文配置，默认为/WEB-INF/$servlet-name$-servelt.xml    -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/configs/spring/mvc-dispatcher-servlet.xml</param-value>
+      <param-value>classpath:spring/spring-web.xml</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
@@ -50,24 +36,6 @@
     <url-pattern>/</url-pattern>
   </servlet-mapping>
 
-
-   <!--使用Spring提供的过滤器解决中文乱码问题(有bug)-->
-  <!--<filter>-->
-    <!--<filter-name>defaultEncoding</filter-name>-->
-    <!--<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>-->
-    <!--<init-param>-->
-      <!--<param-name>encoding</param-name>-->
-      <!--<param-value>UTF-8</param-value>-->
-    <!--</init-param>-->
-    <!--<init-param>-->
-      <!--<param-name>forceEncoding</param-name>-->
-      <!--<param-value>true</param-value>-->
-    <!--</init-param>-->
-  <!--</filter>-->
-  <!--<filter-mapping>-->
-    <!--<filter-name>defaultEncoding</filter-name>-->
-    <!--<url-pattern>/*</url-pattern>-->
-  <!--</filter-mapping>-->
 
   <!--自设置Filter解决中文乱码问题-->
   <filter>
@@ -81,23 +49,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-  <servlet>
-      <servlet-name>signInServlet</servlet-name>
-      <servlet-class>com.servlet.SignInServlet</servlet-class>
-  </servlet>
-    <servlet-mapping>
-        <servlet-name>signInServlet</servlet-name>
-        <url-pattern>/servlet/SignInServlet</url-pattern>
-    </servlet-mapping>
 
 
   <!--注册配置验证码kaptcha组件, 自定义数字相加验证码-->

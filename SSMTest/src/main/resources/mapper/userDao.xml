@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--目的：为DAO接口方法提供sql语句配置
+			1)命名空间对应DAO接口
+			2)id对应方法名
+-->
+<mapper namespace="com.dao.UserDao">
+
+    <select id="getUser" resultType="User" parameterType="String">
+        select email, username,  password, userImagePath ,state
+        from user
+        where username = #{username}
+    </select>
+    
+</mapper>

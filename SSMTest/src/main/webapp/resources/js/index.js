@@ -9,29 +9,39 @@ window.onload=function () {
     showtime();
 
 	//	智能显示登陆表单
-    sign();
-
+    warn();
 }
 
 
-function sign() {
+
+
+function warn() {
     var url = window.location.href;
     if(url.indexOf("signIn") >= 0) {
-
-        signIn();
-    }else if(url.indexOf("signUp") >= 0){
-        signUp();
+        signInShow();
+        document.getElementById("warn-signIn").innerHTML="请登录";
+    }else if(url.indexOf("signUpShow") >= 0){
+        signUpShow();
+    }if(url.indexOf("errorUsername") >= 0) {
+        signInShow();
+        document.getElementById("warn-signIn").innerHTML="用户不存在";
+    }else if(url.indexOf("errorPassword") >= 0){
+        signInShow();
+        document.getElementById("warn-signIn").innerHTML="密码错误";
+    }else if(url.indexOf("errorCheckCode") >= 0){
+        signInShow();
+        document.getElementById("warn-signIn").innerHTML="验证码错误";
     }
+
 }
 
 
-
-function signIn() {
+function signInShow() {
     document.getElementById("signIn-div").style.display = "inline-block";
     document.getElementById("signUp-div").style.display = "none";
 }
 
-function signUp() {
+function signUpShow() {
     document.getElementById("signUp-div").style.display = "inline-block";
     document.getElementById("signIn-div").style.display = "none";
 

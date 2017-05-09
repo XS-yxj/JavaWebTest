@@ -1,25 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Apple
-  Date: 2017/3/26
-  Time: 22:05
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.net.*" %>
+<%@ page import="com.util.CookieUtil" %>
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <title>Home实例</title>
-  <link rel="stylesheet" href="resources/css/index-CSS.css">
-  <link rel="stylesheet" href="resources/css/index-CSS3.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/index.css">
+  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/index3.css">
   <!-- 网页图标favicon.jpg -->
-  <link rel="shortcut icon" href="resources/image/favicon.png" type="image/x-icon"/>
+  <link rel="shortcut icon" href="<%=request.getContextPath() %>/resources/image/favicon.png" type="image/x-icon"/>
   <!--chrome具有缓存，外部js文件修改后浏览器不能及时更新-->
   <!--1.可以设置版本号，src="index.js?version=10"，？v=Math.random（）-->
   <!--2.Shift+F5，强制刷新-->
-  <script type="text/javascript" src="resources/js/index.js" charset="utf-8"></script>
+  <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/index.js" charset="utf-8"></script>
 </head>
 <body id="background">
 
@@ -40,10 +34,10 @@
       <a href="#about">关于</a><span></span>
     </li>
     <li>
-      <button id="signIn" onclick="signIn()">登录</button>
+      <button id="signIn" onclick="signInShow()">登录</button>
     </li>
     <li>
-      <button id="signUp" onclick="signUp()">注册</button>
+      <button id="signUp" onclick="signUpShow()">注册</button>
     </li>
     <li>
       <form action="">
@@ -64,24 +58,30 @@
 
     String username = "";
     String password = "";
-    Cookie[] cookies = request.getCookies();
-    if(cookies != null && cookies.length > 0) {
-
-        for (Cookie c: cookies) {
-
-            if (c.getName().equals("username")) {
-
-//          使用匹配的utf-8解码, 防止Cookie中文乱码
-                username = URLDecoder.decode(c.getValue(), "utf-8");
-
-            }
-            if (c.getName().equals("password")) {
-
-                password = URLDecoder.decode(c.getValue(), "utf-8");
-            }
-        }
-
+    if (!"".equals(CookieUtil.getCookieValue(request,"username"))
+            && !"".equals(CookieUtil.getCookieValue(request,"password"))){
+        username = CookieUtil.getCookieValue(request,"username");
+        password = CookieUtil.getCookieValue(request,"password");
     }
+
+//    Cookie[] cookies = request.getCookies();
+//    if(cookies != null && cookies.length > 0) {
+//
+//        for (Cookie c: cookies) {
+//
+//            if (c.getName().equals("username")) {
+//
+////          使用匹配的utf-8解码, 防止Cookie中文乱码
+//                username = URLDecoder.decode(c.getValue(), "utf-8");
+//
+//            }
+//            if (c.getName().equals("password")) {
+//
+//                password = URLDecoder.decode(c.getValue(), "utf-8");
+//            }
+//        }
+//
+//    }
 
 %>
 
@@ -111,7 +111,7 @@
 
     <%--登录表单--%>
     <div  id="signIn-div">
-      <form action="servlet/SignInServlet" method="post" class="sign" name="signInForm">
+      <form action="seeWorld" method="post" class="sign" name="signInForm">
         <h4 class="sign">欢迎登录</h4>
         <div>
             <input type="text" name="username" placeholder="用户名" value="<%=username%>" />
@@ -141,6 +141,7 @@
                 <input type="text"  name="checkCode"  id="checkCode" onkeyup="tryAjax()"/>
             </div>
         </div>
+        <div id="warn-signIn"></div>
         <div><input type="submit" value="登录"></div>
       </form>
     </div>

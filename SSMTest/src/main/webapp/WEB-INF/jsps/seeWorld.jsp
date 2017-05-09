@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Apple
-  Date: 2017/4/15
-  Time: 12:54
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -45,7 +38,7 @@
             <li><a href="#">设置</a></li>
             <li><a href="#">帮助</a></li>
             <li><a href="#">待定</a></li>
-            <li><a href="<%=request.getContextPath() %>/setting/${user.username}">个人信息</a></li>
+            <li><a href="<%=request.getContextPath() %>/setting">个人信息</a></li>
         </ul>
     </div>
 
