@@ -1,17 +1,17 @@
 package com.entity;
 
 import java.util.Date;
-import java.util.List;
 
-public class Message {
+/**
+ * Created by Apple on 2017/5/17.
+ */
+public class Communication {
 
     private String username;
+    private String followName;
     private Date time;
 
     private String content;
-    private String filePath;
-
-    private List<Communication> communications;
 
     public String getUsername() {
         return username;
@@ -37,19 +37,11 @@ public class Message {
         this.content = content;
     }
 
-    public List<Communication> getCommunications() {
-        return communications;
+    public String getFollowName() {
+        return followName;
     }
 
-    public void setCommunications(List<Communication> communications) {
-        this.communications = communications;
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
-
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
+    public void setFollowName(String followName) {
+        this.followName = followName;
     }
 }

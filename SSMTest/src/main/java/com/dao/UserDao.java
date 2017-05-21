@@ -1,6 +1,8 @@
 package com.dao;
 
+import com.entity.Message;
 import com.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -12,5 +14,8 @@ public interface UserDao {
 
     public User getUser(String username);
 
-    public boolean reviseUser(User user);
+    public List<Message> queryMessages(String name);
+
+    public int newMessage(@Param("username") String username, @Param("content") String content, @Param("filePath") String filePath);
+
 }

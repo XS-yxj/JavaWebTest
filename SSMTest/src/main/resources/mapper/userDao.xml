@@ -10,9 +10,24 @@
 <mapper namespace="com.dao.UserDao">
 
     <select id="getUser" resultType="User" parameterType="String">
-        select email, username,  password, userImagePath ,state
+        select email, username,  password, user_image_path ,state
         from user
         where username = #{username}
     </select>
-    
+
+    <select id="queryMessages"  resultType="Message" parameterType="String">
+        select username, time, content, file_path
+        from message
+        where username = #{username}
+    </select>
+
+
+    <insert id="newMessage" >
+        insert ignore into
+        message(username, content, file_path)
+        values(#{username}, #{content}, #{filePath})
+    </insert>
+
+
+
 </mapper>

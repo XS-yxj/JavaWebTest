@@ -83,11 +83,11 @@
     
     <!--注册拦截器(不配规则或/**，默认拦截所有请求)-->
     <mvc:interceptors>
-        <!--拦截所有请求，解决中文乱码问题（无法处理response）-->
-        <!--<mvc:interceptor>-->
-            <!--<mvc:mapping path="/*"/>-->
-            <!--<bean class="com.web.interceptor.EncodingInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
+        <!--拦截所有请求，解决中文乱码问题-->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.web.interceptor.EncodingInterceptor"></bean>
+        </mvc:interceptor>
 
         <!--拦截非登录用户的非法请求-->
         <mvc:interceptor>

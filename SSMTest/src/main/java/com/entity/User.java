@@ -13,7 +13,7 @@ public class User {
     private String email;
     private String userImagePath;
 
-//    注意此处类型，非枚举
+//    注意此处类型，非枚举(-1:不存在，0:正常，1:封禁)
     private int state;
 
     private String sessionId;

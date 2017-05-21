@@ -1,11 +1,14 @@
 package com.service.Impl;
 
 import com.dao.UserDao;
+import com.entity.Message;
 import com.entity.User;
 import com.enums.UserStateEnum;
 import com.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by Apple on 2017/5/8.
@@ -33,5 +36,18 @@ public class UserServiceImpl implements UserService {
             return user;
         }
 
+    }
+
+    @Override
+    public List<Message> queryMessages(String username) {
+        List<Message> messages = userDao.queryMessages(username);
+
+        return messages;
+    }
+
+    @Override
+    public int newMessage(String username, String content, String filePath) {
+        int count = userDao.newMessage(username, content, filePath);
+        return count;
     }
 }

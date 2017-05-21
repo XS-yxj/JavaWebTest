@@ -1,5 +1,6 @@
 package com.web.interceptor;
 
+import com.entity.User;
 import com.util.CookieUtil;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,7 +16,9 @@ public class IllegalRequestInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        if("".equals(CookieUtil.getCookieValue(request,"username")) && request.getParameter("username") == null) {
+        if("".equals(CookieUtil.getCookieValue(request,"username"))
+                && request.getParameter("username") == null
+                && request.getSession().getAttribute("user") == null) {
 
             response.sendRedirect(request.getContextPath() + "/?signInShow");
             return false;

@@ -1,7 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.net.*" %>
-<%@ page import="com.util.CookieUtil" %>
 <!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
@@ -53,42 +51,6 @@
   </ul>
 </div>
 
-
-<%
-
-    String username = "";
-    String password = "";
-    if (!"".equals(CookieUtil.getCookieValue(request,"username"))
-            && !"".equals(CookieUtil.getCookieValue(request,"password"))){
-        username = CookieUtil.getCookieValue(request,"username");
-        password = CookieUtil.getCookieValue(request,"password");
-    }
-
-//    Cookie[] cookies = request.getCookies();
-//    if(cookies != null && cookies.length > 0) {
-//
-//        for (Cookie c: cookies) {
-//
-//            if (c.getName().equals("username")) {
-//
-////          使用匹配的utf-8解码, 防止Cookie中文乱码
-//                username = URLDecoder.decode(c.getValue(), "utf-8");
-//
-//            }
-//            if (c.getName().equals("password")) {
-//
-//                password = URLDecoder.decode(c.getValue(), "utf-8");
-//            }
-//        }
-//
-//    }
-
-%>
-
-
-
-
-
 <%--************************内容栏*****************************--%>
 <div id="content" >
 
@@ -111,13 +73,13 @@
 
     <%--登录表单--%>
     <div  id="signIn-div">
-      <form action="seeWorld" method="post" class="sign" name="signInForm">
+      <form action="signIn" method="post" class="sign" name="signInForm">
         <h4 class="sign">欢迎登录</h4>
         <div>
-            <input type="text" name="username" placeholder="用户名" value="<%=username%>" />
+            <input type="text" name="username" id="username" placeholder="用户名"  />
         </div>
         <div>
-            <input type="password" name="password" placeholder="密码" value="<%=password%>" />
+            <input type="password" name="password" placeholder="密码" value="${cookie.password.value}" />
         </div>
         <div class="sfg-1">
             <div>
@@ -162,4 +124,13 @@
 
 
 </body>
+<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        //$.cookie("username") 获取name为city的Cookie的值
+        //$("#username").val(str) 设置id="username"的元素的值为str
+        $("#username").val($.cookie("username"));
+    });
+</script>
 </html>
