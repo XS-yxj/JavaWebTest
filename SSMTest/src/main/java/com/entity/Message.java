@@ -13,6 +13,7 @@ public class Message {
 
     private List<Communication> communications;
 
+
     public String getUsername() {
         return username;
     }
@@ -52,4 +53,6 @@ public class Message {
     public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
+
+
 }

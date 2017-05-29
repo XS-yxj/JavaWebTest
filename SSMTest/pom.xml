@@ -199,6 +199,13 @@
       <version>2.2.1</version>
     </dependency>
 
+    <!--集合工具，用于支持MapUtils-->
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>3.2</version>
+    </dependency>
+
   </dependencies>
 
 

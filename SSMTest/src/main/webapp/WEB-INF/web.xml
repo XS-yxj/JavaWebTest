@@ -83,7 +83,7 @@
     <url-pattern>/randomcode.jpg</url-pattern>
   </servlet-mapping>
 
-
+<!--实时验证验证码-->
     <servlet>
         <servlet-name>ajaxServlet</servlet-name>
         <servlet-class>com.servlet.AjaxServlet</servlet-class>
@@ -92,7 +92,6 @@
         <servlet-name>ajaxServlet</servlet-name>
         <url-pattern>/Ajax</url-pattern>
     </servlet-mapping>
-
 
 
 

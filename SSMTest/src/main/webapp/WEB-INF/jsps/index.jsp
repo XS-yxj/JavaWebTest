@@ -61,12 +61,24 @@
 
     <!-- 注册表单 -->
     <div id="signUp-div">
-        <form action="#signUp" method="post" class="sign" name="signUpForm">
+        <form action="signUp" method="post" class="sign" name="signUpForm">
             <h4 class="sign">欢迎注册</h4>
-            <div><input type="text" placeholder="用户名"></div>
-            <div><input type="email" placeholder="邮箱地址"></div>
-            <div><input type="password" placeholder="密码"></div>
-            <div><input type="password" placeholder="重复密码"></div>
+            <div><input type="text" id="usernameTry" name="username" placeholder="用户名" onkeyup="checkUsername()" required></div>
+            <div><input type="email" name="email" placeholder="邮箱地址" required></div>
+            <div><input type="password" name="password" id="password" placeholder="密码" required></div>
+            <div><input type="password" name="rePassword" id="rePassword" placeholder="重复密码" onkeyup="checkRePassword()" required></div>
+            <div class="sfg-2">
+                <div>
+                    <a href="javascript:reloadCode0();"><img id="imageCheckCode0" alt="验证码" title="验证码"  src="randomcode.jpg" /></a>
+                </div>
+                <div>
+                    <img id="isTrue0"  src="resources/image/isFalse.png"  >
+                </div>
+                <div>
+                    <input type="text"  name="checkCode"  id="checkCode0" onkeyup="tryAjax0()"/>
+                </div>
+            </div>
+            <div id="warn-signUp"></div>
             <div><input class="submit" type="submit" value="注册"></div>
         </form>
     </div>
@@ -76,10 +88,10 @@
       <form action="signIn" method="post" class="sign" name="signInForm">
         <h4 class="sign">欢迎登录</h4>
         <div>
-            <input type="text" name="username" id="username" placeholder="用户名"  />
+            <input type="text" name="username" id="username" placeholder="用户名"   required/>
         </div>
         <div>
-            <input type="password" name="password" placeholder="密码" value="${cookie.password.value}" />
+            <input type="password" name="password" placeholder="密码" value="${cookie.password.value}" required/>
         </div>
         <div class="sfg-1">
             <div>
@@ -100,7 +112,7 @@
                <img id="isTrue"  src="resources/image/isFalse.png"  >
             </div>
             <div>
-                <input type="text"  name="checkCode"  id="checkCode" onkeyup="tryAjax()"/>
+                <input type="text"  name="checkCode"  id="checkCode" onkeyup="tryAjax()" required/>
             </div>
         </div>
         <div id="warn-signIn"></div>

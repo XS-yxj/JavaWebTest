@@ -11,6 +11,7 @@ import java.io.IOException;
 
 /**
  * Created by Apple on 2017/4/8.
+ * 验证码实时验证
  */
 //@WebServlet(name = "AjaxServlet", urlPatterns = "/Ajax")
 public class AjaxServlet extends HttpServlet {

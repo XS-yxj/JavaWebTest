@@ -9,24 +9,89 @@
 -->
 <mapper namespace="com.dao.UserDao">
 
+    <insert id="newUser" >
+        insert ignore into
+        user(username, password, email)
+        values(#{username}, #{password}, #{email})
+    </insert>
+
     <select id="getUser" resultType="User" parameterType="String">
         select email, username,  password, user_image_path ,state
         from user
         where username = #{username}
     </select>
 
-    <select id="queryMessages"  resultType="Message" parameterType="String">
-        select username, time, content, file_path
-        from message
-        where username = #{username}
+    <!--查询用户所有关注-->
+    <select id="queryFriends" resultType="User" parameterType="String">
+        select
+        u.username,
+        u.user_image_path
+        from friend f
+        inner join user u on u.username = f.user_b
+        where f.user_a = #{username}
     </select>
 
 
+<!--新建动态-->
     <insert id="newMessage" >
         insert ignore into
         message(username, content, file_path)
         values(#{username}, #{content}, #{filePath})
     </insert>
+
+<!--评论-->
+    <insert id="comment" >
+        insert ignore into
+        communication(message_username, follower_name, message_time, communication_content)
+        values(#{username}, #{followerName}, #{time}, #{content})
+    </insert>
+
+
+    <resultMap id="message" type="com.entity.Message">
+        <result column="username"  property="username" />
+        <result column="time"  property="time" />
+        <result column="content"  property="content" />
+        <result column="file_path"  property="filePath" />
+        <collection property="communications" ofType="com.entity.Communication">
+            <result column="message_username" property="messageUsername" />
+            <result column="follower_name" property="followerName" />
+            <result column="message_time" property="messageTime" />
+            <result column="follow_time" property="followTime" />
+            <result column="communication_content" property="communicationContent" />
+        </collection>
+    </resultMap>
+
+
+
+
+<!--搜索信息和评论-->
+    <select id="queryMessages"  resultMap="message" parameterType="String">
+        select
+        m.username,
+        m.time,
+        m.content,
+        m.file_path,
+        c.message_username,
+        c.follower_name,
+        c.message_time,
+        c.follow_time,
+        c.communication_content
+        from message m
+        left join communication c on c.message_username = m.username
+        and c.message_time = m.time
+        where m.username = #{username}
+        order by m.time desc
+    </select>
+    
+    <!--关注与取消关注-->
+    <!--mybatis调用存储过程-->
+    <select id="watchByProcedure" statementType="CALLABLE">
+        call watch(
+        #{userA, jdbcType=VARCHAR, mode=IN},
+        #{userB, jdbcType=VARCHAR, mode=IN},
+        #{result, jdbcType=INTEGER, mode=OUT}
+        )
+    </select>
 
 
 

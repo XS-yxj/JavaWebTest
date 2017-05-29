@@ -20,38 +20,25 @@
     </div>
 </div>
 
-
+<div id="leftMenu">
+    <div><img alt="用户图片" width="100%" height="100%"
+              src="${pageContext.request.contextPath}/resources/image/${user.userImagePath}"/></div>
+    <div>${user.username}</div>
+    <ul>
+        <li><a href="${pageContext.request.contextPath}/seeWorld">首页</a></li>
+        <li><a href="${pageContext.request.contextPath}/${user.username}/friends">人脉</a></li>
+        <li><a href="${pageContext.request.contextPath}/${user.username}/setting">设置</a></li>
+        <li><a href="${pageContext.request.contextPath}/${user.username}">个人</a></li>
+        <li><a href="#">帮助</a></li>
+    </ul>
+</div>
 
 <div id="content">
-
-
-    <div id="leftMenu">
-        <div><img alt="用户图片" width="100%" height="100%"
-                  src="${pageContext.request.contextPath}/resources/image/${user.userImagePath}"/></div>
-        <div>${user.username}</div>
-        <ul>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">人脉</a></li>
-            <li><a href="${pageContext.request.contextPath}/user.usrname">设置</a></li>
-            <li><a href="#">帮助</a></li>
-            <li><a href="#">待定</a></li>
-            <li><a href="${pageContext.request.contextPath}/${user.username}/setting">个人信息</a></li>
-        </ul>
-    </div>
-
-
 
     <div id="message">
         <%--<div>信息页面</div>--%>
         <t:insertAttribute name="messages" />
     </div>
-
-
-
-
-
-
-
 
 </div>
 </body>

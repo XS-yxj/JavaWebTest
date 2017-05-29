@@ -1,0 +1,85 @@
+
+/*-----------------------用户动态框---------------------*/
+.aMessage{
+    overflow: hidden;
+    width: 750px;
+    min-height: 125px;
+    /*max-height: 550px;*/
+    background-color: white;
+    padding: 5px 10px;
+    border: 1px solid rgb(208, 211, 213);
+    margin: 50px auto;
+}
+
+.aMessage div{
+    margin: 5px 0px;
+}
+
+.message-header{
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 1px solid rgb(208, 211, 213);
+}
+
+.m-time{
+    float: left;
+    width: 45%;
+}
+
+.m-user{
+    float: left;
+    width: 45%;
+}
+
+.m-content{
+    width: 100%;
+    min-height: 50px;
+    /*margin: 5px 0px;*/
+    border: 1px solid rgb(208, 211, 213);
+}
+
+.m-img{
+    /*margin: 0px auto;*/
+    position: relative;
+    left: 180px;
+    max-width: 320px ;
+    max-height: 240px;
+}
+
+.m-discuss [type=text]{
+    height: 30px;
+    width: 100%;
+}
+
+.m-discuss [type=submit]{
+    position: relative;
+    top:-25px;
+    right: 5px;
+    float: right;
+}
+
+.aCommunication{
+    overflow: hidden;
+    padding: 5px 50px;
+}
+
+.aCommunication .followerName{
+    float: left;
+}
+
+.aCommunication .followTime{
+    float: right;
+    color: rgba(128, 128, 128, 0.8);
+}
+
+.aCommunication .c-content{
+    float: left;
+    /*clear: both;*/
+    padding: 0px 20px;
+}
+
+
+
+/**{*/
+/*border: 1px solid black;*/
+/*}*/

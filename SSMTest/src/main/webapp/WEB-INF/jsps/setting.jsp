@@ -14,7 +14,7 @@
 
 <div style="text-align: center">
 
-    <div>${user.username}</div>
+    <%--<div>${user.username}</div>--%>
     <div><img alt="用户图片" src="<%= request.getContextPath()%>/resources/image/${user.userImagePath}"/></div>
     <div>修改密码</div>
     <div>个人介绍</div>

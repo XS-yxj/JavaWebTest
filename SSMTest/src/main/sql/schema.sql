@@ -35,11 +35,12 @@ PRIMARY KEY (username, time)
 drop table communication;
 
 CREATE TABLE `communication`(
-`username` varchar(50) NOT NULL COMMENT '发信息人',
-`follow_name` varchar(50) NOT NULL COMMENT '评论人',
-`time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '时间',
-`content` varchar(500) NOT NULL COMMENT '内容',
-PRIMARY KEY (username, follow_name, time)
+  `message_username` varchar(50) NOT NULL COMMENT '发信息人',
+  `follower_name` varchar(50) NOT NULL COMMENT '评论人',
+  `message_time` datetime NOT NULL COMMENT '原信息时间',
+  `follow_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '评论时间',
+  `communication_content` varchar(500) NOT NULL COMMENT '内容',
+  PRIMARY KEY (message_username, follower_name, follow_time)
 )DEFAULT CHARSET=utf8 COMMENT='互动信息表';
 
 -- 创建朋友关系表

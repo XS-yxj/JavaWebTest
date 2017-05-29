@@ -7,41 +7,53 @@ import java.util.Date;
  */
 public class Communication {
 
-    private String username;
-    private String followName;
-    private Date time;
+    private String messageUsername;
+    private String followerName;
+    private Date messageTime;
+    private Date followTime;
 
-    private String content;
+    private String communicationContent;
 
-    public String getUsername() {
-        return username;
+    public String getFollowerName() {
+        return followerName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFollowerName(String followerName) {
+        this.followerName = followerName;
     }
 
-    public Date getTime() {
-        return time;
+
+    public Date getFollowTime() {
+        return followTime;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public void setFollowTime(Date followTime) {
+        this.followTime = followTime;
     }
 
-    public String getContent() {
-        return content;
+
+    public String getMessageUsername() {
+        return messageUsername;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setMessageUsername(String messageUsername) {
+        this.messageUsername = messageUsername;
     }
 
-    public String getFollowName() {
-        return followName;
+    public Date getMessageTime() {
+        return messageTime;
     }
 
-    public void setFollowName(String followName) {
-        this.followName = followName;
+    public void setMessageTime(Date messageTime) {
+        this.messageTime = messageTime;
     }
+
+    public String getCommunicationContent() {
+        return communicationContent;
+    }
+
+    public void setCommunicationContent(String communicationContent) {
+        this.communicationContent = communicationContent;
+    }
+
 }

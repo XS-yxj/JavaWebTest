@@ -12,6 +12,24 @@ window.onload=function () {
     warn();
 }
 
+function showtime(){
+    var myDate = new Date();
+    var h = myDate.getHours();
+    var m = checkTime(myDate.getMinutes());
+    var s = checkTime(myDate.getSeconds());
+
+    var strClock = h + ':' + m + ':' + s;
+
+    document.getElementById("clock").value = strClock;
+
+    //每隔500毫秒执行showtime一次
+    setTimeout(showtime,500);
+}
+
+//格式控制
+function checkTime(i){
+    return i>9 ? i : '0'+i;
+}
 
 
 
@@ -116,37 +134,121 @@ function callback() {
 	}
 }
 
+// ----------实时检查用户名是否重名--------------
+var xmlHttpCheckUsername;
+function checkUsername() {
 
+    var content = document.getElementById("usernameTry");
+    if(content == "") {
+        return;
+    }
+    xmlHttpCheckUsername = createXMLHttpCheckUsername();
+//		向服务器发送数据，escape()解决中文乱码
+    var url = "checkUsername?username=" + encodeURI(content.value);
+//	true表示异步，js会在森达方法之后继续执行，而不等待服务器响应
+    xmlHttpCheckUsername.open("GET", url, true);
+//	绑定回调方法，监视xmlHttp的状态改变（4，完成）
+//	-------注意此处为callback而非callback()----------------------
+    xmlHttpCheckUsername.onreadystatechange = callbackCheckUsername;
+    xmlHttpCheckUsername.send();
 
-
-
-
-
-
-
-// window.onload = function (){
-//     // 时钟
-// 	showtime();
-// }
-
-
-function showtime(){
-    var myDate = new Date();
-    var h = myDate.getHours();
-    var m = checkTime(myDate.getMinutes());
-    var s = checkTime(myDate.getSeconds());
-
-    var strClock = h + ':' + m + ':' + s;
-
-    document.getElementById("clock").value = strClock;
-
-    //每隔500毫秒执行showtime一次
-    setTimeout(showtime,500);
+}
+//获取XMLHttp对象，解决兼容性
+function createXMLHttpCheckUsername() {
+    var xmlHttp;
+    if(window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+    }else {
+        //兼容IE6以下
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xmlHttp;
+}
+//接受服务器响应和改变前端内容
+function callbackCheckUsername() {
+    var e = document.getElementById("warn-signUp");
+    if(xmlHttpCheckUsername.readyState==4 && xmlHttpCheckUsername.status==200) {
+        //交互成功，响应数据为文本格式
+        var result = xmlHttpCheckUsername.responseText;
+        if(result==="rename") {
+            e.innerHTML = "用户名已存在";
+        }else {
+            e.innerHTML = "";
+        }
+    }
 }
 
-//格式控制
-function checkTime(i){
-    return i>9 ? i : '0'+i;
+function checkRePassword() {
+    var password = document.getElementById("password");
+    var rePassword = document.getElementById("rePassword");
+    var e = document.getElementById("warn-signUp");
+    if(password.value != rePassword.value){
+        e.innerHTML = "两次密码输入不同";
+    }else {
+        e.innerHTML = "";
+    }
 }
+
+
+
+//-------------注册页面-------------------------
+//处理验证码“看不清”
+function reloadCode0() {
+    //请求新验证码
+    document.getElementById("imageCheckCode0").src = "randomcode.jpg";
+    //输入框置空
+    document.getElementById("checkCode0").value = "";
+    //隐藏实时验证码图片
+    document.getElementById("isTrue0").style.opacity = "0";
+}
+
+var xmlHttp0;
+function tryAjax0() {
+
+    var content = document.getElementById("checkCode0");
+    if(content == "") {
+        return;
+    }
+    xmlHttp0 = createXMLHttp0();
+//		向服务器发送数据，escape()解决中文乱码
+    var url = "Ajax?ajaxCheckCode=" + escape(content.value);
+//	true表示异步，js会在森达方法之后继续执行，而不等待服务器响应
+    xmlHttp0.open("GET", url, true);
+//	绑定回调方法，监视xmlHttp的状态改变（4，完成）
+//	-------注意此处为callback而非callback()----------------------
+    xmlHttp0.onreadystatechange = callback0;
+    xmlHttp0.send();
+
+}
+//获取XMLHttp对象，解决兼容性
+function createXMLHttp0() {
+    var xmlHttp;
+    if(window.XMLHttpRequest) {
+        xmlHttp = new XMLHttpRequest();
+    }else {
+        //兼容IE6以下
+        xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    return xmlHttp;
+}
+//接受服务器响应和改变前端内容
+function callback0() {
+    var e = document.getElementById("isTrue0");
+    if(xmlHttp0.readyState==4 && xmlHttp0.status==200) {
+        //交互成功，响应数据为文本格式
+        var result = xmlHttp0.responseText;
+        if(result==="true") {
+            e.style="opacity: 1;";
+            e.alt="T";
+            e.src="resources/image/isTrue.png"
+        }else {
+            e.style="opacity: 1;";
+            e.alt="F";
+            e.src="resources/image/isFalse.png"
+        }
+    }
+}
+
+
 
 

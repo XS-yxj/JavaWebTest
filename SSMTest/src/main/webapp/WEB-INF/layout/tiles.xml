@@ -9,6 +9,16 @@
                        value="/WEB-INF/jsps/seeWorld.jsp" />
     </definition>
 
+    <definition name="zone" template="/WEB-INF/layout/page.jsp">
+        <put-attribute name="messages"
+                       value="/WEB-INF/jsps/zone.jsp" />
+    </definition>
+
+    <definition name="friends" template="/WEB-INF/layout/page.jsp">
+        <put-attribute name="messages"
+                       value="/WEB-INF/jsps/friends.jsp" />
+    </definition>
+
     <definition name="setting" template="/WEB-INF/layout/page.jsp">
         <put-attribute name="messages"
                        value="/WEB-INF/jsps/setting.jsp" />

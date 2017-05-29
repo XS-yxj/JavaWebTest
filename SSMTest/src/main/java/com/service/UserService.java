@@ -3,6 +3,7 @@ package com.service;
 import com.entity.Message;
 import com.entity.User;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,10 +11,23 @@ import java.util.List;
  */
 public interface UserService {
 
-    public User getUser(String username, String password);
+     int newUser(String username, String password, String email);
 
-    public List<Message> queryMessages(String username);
+     User getUser(String username);
 
-    public int newMessage(String username, String content, String filePath);
+     User getUser(String username, String password);
+
+    //    查询用户所有关注
+     List<User> queryFriends(String username);
+
+     List<Message> queryMessages(String username);
+
+     int newMessage(String username, String content, String filePath);
+
+//    评论
+     int comment(String username, String followerName, Date time, String content);
+
+//   关注与取消关注
+    int watchByProcedure(String userA, String userB);
 
 }
