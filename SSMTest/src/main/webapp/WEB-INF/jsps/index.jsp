@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div id="warn-signUp"></div>
-            <div><input class="submit" type="submit" value="注册"></div>
+            <div><input class="submit" type="submit" id="signUpButton" value="注册"></div>
         </form>
     </div>
 

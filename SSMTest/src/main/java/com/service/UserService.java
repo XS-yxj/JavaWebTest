@@ -17,10 +17,15 @@ public interface UserService {
 
      User getUser(String username, String password);
 
+     List<String> search(String keyword);
+
     //    查询用户所有关注
      List<User> queryFriends(String username);
 
      List<Message> queryMessages(String username);
+
+    //     搜索自己和朋友信息
+    List<Message> queryMessageAll(List<User> users);
 
      int newMessage(String username, String content, String filePath);
 

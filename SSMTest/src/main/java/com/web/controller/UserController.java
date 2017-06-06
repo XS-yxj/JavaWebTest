@@ -3,8 +3,8 @@ package com.web.controller;
 import com.entity.Message;
 import com.entity.User;
 import com.service.UserService;
-import com.sun.deploy.net.HttpResponse;
 import com.util.MyUtil;
+import net.sf.json.JSONArray;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,10 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -41,9 +41,11 @@ public class UserController {
             model.addAttribute("user",user);
 
 //       加载信息
-            List<Message> messages = userService.queryMessages(username);
+//            List<Message> messages = userService.queryMessages(username);
+            List<User> users = userService.queryFriends(username);
+            users.add(user);
+            List<Message> messages = userService.queryMessageAll(users);
             model.addAttribute("messages", messages);
-//            messages.toString();
             return "seeWorld";
         }else {
             return "redirect:/?signIn";
@@ -66,6 +68,22 @@ public class UserController {
         model.addAttribute("userList", userList);
         return "friends";
     }
+
+//  搜索
+    @RequestMapping(value = "/search")
+    public void search(@RequestParam String keyword, HttpServletResponse response) throws IOException {
+        keyword =  URLDecoder.decode(keyword, "UTF-8");
+        List<String> users = userService.search(keyword);
+//        返回json格式
+//        System.out.println(JSONArray.fromObject(users));
+        response.getWriter().write(JSONArray.fromObject(users).toString());
+    }
+
+    @RequestMapping(value = "/search/keyword")
+    public String search(@RequestParam String keyword){
+        return "redirect:/"+keyword;
+    }
+
 
 //    关注
     @RequestMapping(value = "/{userA}/watch/{userB}")

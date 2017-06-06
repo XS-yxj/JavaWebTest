@@ -234,6 +234,7 @@ function createXMLHttp0() {
 //接受服务器响应和改变前端内容
 function callback0() {
     var e = document.getElementById("isTrue0");
+    var b = document.getElementById("signUpButton");
     if(xmlHttp0.readyState==4 && xmlHttp0.status==200) {
         //交互成功，响应数据为文本格式
         var result = xmlHttp0.responseText;
@@ -241,10 +242,12 @@ function callback0() {
             e.style="opacity: 1;";
             e.alt="T";
             e.src="resources/image/isTrue.png"
+            b.disabled = false;
         }else {
             e.style="opacity: 1;";
             e.alt="F";
             e.src="resources/image/isFalse.png"
+            b.disabled = true;
         }
     }
 }

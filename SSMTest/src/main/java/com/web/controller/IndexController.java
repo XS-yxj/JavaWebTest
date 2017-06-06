@@ -74,19 +74,24 @@ public class IndexController {
                          @RequestParam String username, @RequestParam String email,
                          @RequestParam String password, @RequestParam String rePassword,
                          Model model) throws IOException {
-//      检查验证码
+////      检查验证码
 //            Boolean isCheckCode = KaptchaUtil.checkCode(request);
-        if(rePassword.equals(password)) {
-            int count = userService.newUser(username, password, email);
-            if(count == 1) {
-                return "redirect:/?signIn";
+//        if(isCheckCode){
+            if(rePassword.equals(password)) {
+                int count = userService.newUser(username, password, email);
+                if(count == 1) {
+                    return "redirect:/?signIn";
+                }else {
+                    return "redirect:/?";
+                }
             }else {
+//            重复密码错误
                 return "redirect:/?";
             }
-        }else {
-//            重复密码错误
-            return "redirect:/?";
-        }
+//        }else {
+//            return "redirect:/?signUp&errorCheckCode";
+//        }
+
     }
 
 //    提供Ajax实时注册检查用户重名

@@ -8,18 +8,27 @@
 			2)id对应方法名
 -->
 <mapper namespace="com.dao.UserDao">
-
+<!--注册-->
     <insert id="newUser" >
         insert ignore into
         user(username, password, email)
         values(#{username}, #{password}, #{email})
     </insert>
-
+<!--搜索和登录-->
     <select id="getUser" resultType="User" parameterType="String">
         select email, username,  password, user_image_path ,state
         from user
         where username = #{username}
     </select>
+
+    <!--模糊搜索用户-->
+    <select id="search" resultType="String" parameterType="String">
+        <bind name="keyword" value="'%' + _parameter + '%'" />
+        select username
+        from user
+        where username LIKE #{keyword}
+    </select>
+
 
     <!--查询用户所有关注-->
     <select id="queryFriends" resultType="User" parameterType="String">
@@ -62,8 +71,6 @@
     </resultMap>
 
 
-
-
 <!--搜索信息和评论-->
     <select id="queryMessages"  resultMap="message" parameterType="String">
         select
@@ -82,7 +89,29 @@
         where m.username = #{username}
         order by m.time desc
     </select>
-    
+
+    <!--搜索自己和朋友信息-->
+    <select id="queryMessageAll"  resultMap="message" parameterType="java.util.List">
+        select
+        m.username,
+        m.time,
+        m.content,
+        m.file_path,
+        c.message_username,
+        c.follower_name,
+        c.message_time,
+        c.follow_time,
+        c.communication_content
+        from message m
+        left join communication c on c.message_username = m.username
+        and c.message_time = m.time
+        where m.username in
+        <foreach collection="list" index="index" item="user" open="(" separator="," close=")">
+            #{user.username}
+        </foreach>
+        order by m.time desc
+    </select>
+
     <!--关注与取消关注-->
     <!--mybatis调用存储过程-->
     <select id="watchByProcedure" statementType="CALLABLE">

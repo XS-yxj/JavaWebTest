@@ -32,7 +32,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(String username) {
         User user = userDao.getUser(username);
-
         return user;
     }
 
@@ -56,6 +55,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<String> search(String keyword) {
+        List<String> users = userDao.search(keyword);
+        return users;
+    }
+
+    @Override
     public List<User> queryFriends(String username) {
         List<User> userList = userDao.queryFriends(username);
         return userList;
@@ -65,6 +70,12 @@ public class UserServiceImpl implements UserService {
     public List<Message> queryMessages(String username) {
         List<Message> messages = userDao.queryMessages(username);
 
+        return messages;
+    }
+
+    @Override
+    public List<Message> queryMessageAll(List<User> users) {
+        List<Message> messages = userDao.queryMessageAll(users);
         return messages;
     }
 

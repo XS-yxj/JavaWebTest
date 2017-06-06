@@ -20,11 +20,11 @@
         <c:forEach var="friend" items="${userList}">
             <c:if test="${friend.username eq username}" >
                 <c:set  var="flag" value="1" ></c:set>
-                <a class="a-watch" href="javascript:watchByAjax('${user.username}','${username}')">取消关注</a>
+                <a class="a-watch" href="javascript:watchByAjax('${user.username}','${username}', 0)">取消关注</a>
             </c:if>
         </c:forEach>
         <c:if test="${flag eq 0}">
-            <a class="a-watch" href="javascript:watchByAjax('${user.username}','${username}')">关注</a>
+            <a class="a-watch" href="javascript:watchByAjax('${user.username}','${username}', 0)">关注</a>
         </c:if>
     </c:if>
     </div>

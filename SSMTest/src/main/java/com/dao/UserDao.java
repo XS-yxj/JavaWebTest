@@ -19,10 +19,15 @@ public interface UserDao {
 
      User getUser(String username);
 
+     List<String> search(String keyword);
+
 //    查询用户所有关注
      List<User> queryFriends(String username);
 
      List<Message> queryMessages(String name);
+
+//     搜索自己和朋友信息
+     List<Message> queryMessageAll(List<User> users);
 
      int newMessage(@Param("username") String username, @Param("content") String content, @Param("filePath") String filePath);
 
